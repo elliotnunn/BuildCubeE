@@ -3,18 +3,15 @@
 import argparse
 import os
 import os.path as path
-import tempfile
-import datetime as dt
-import time
-import subprocess as sp
-import shutil
 import re
+from machfs import Volume, Folder, File
+import resourcefork
 
 ########################################################################
 # Logs
 
 curstage = 0
-NSTAGES = 7
+NSTAGES = 5
 
 def nextstage(name):
 	global curstage
@@ -34,117 +31,102 @@ args.maker = 'RISC'
 nextstage('Walking source tree')
 
 def includefilter(n):
+	if n.endswith('.rdump'): return True
+	if n.endswith('.idump'): return True
 	if n.startswith('.'): return False
 	if n.upper().endswith('.DMG'): return False
 	return True
 
-g_filetree = []
-g_reztree = []
+def mkbasename(n):
+	if n.endswith('.rdump'): return n[:-6]
+	if n.endswith('.idump'): return n[:-6]
+	return n
+
+g_volume = Volume()
+g_volume.name = 'MacStoopid'
+tmptree = {'.': g_volume}
+
 for dirpath, dirnames, filenames in os.walk('.'):
 	dirnames[:] = list(filter(includefilter, dirnames))
 	filenames[:] = list(filter(includefilter, filenames))
-	for f in filenames:
-		p = path.join(dirpath, f).lstrip('./')
-		if p.endswith('.RezDump'):
-			g_reztree.append(p)
-			p = p.rpartition('.')[0]
-		g_filetree.append(p)
-g_filetree = sorted(set(g_filetree))
 
-print('Got %d files' % len(g_filetree))
+	for dn in dirnames:
+		newdir = Folder()
+		tmptree[dirpath][dn] = newdir
+		tmptree[path.join(dirpath, dn)] = newdir
 
-########################################################################
+	for fn in filenames:
+		basename = mkbasename(fn)
+		fullbase = path.join(dirpath, basename)
+		fullpath = path.join(dirpath, fn)
 
-nextstage('Classifying files')
+		thefile = tmptree.get(fullbase, File())
 
-g_fileclass = {}
-for f in g_filetree:
-	ext = os.path.splitext(f)[1].lower()
-	if ext in ['.o', '.lib']:
-		inf = 'MPS OBJ '
-	elif ext in ['.txt', '.a', '.c']:
-		inf = 'MPS TEXT'
-	elif f.startswith('Tools/'):
-		inf = 'MPS MPST'
-	else:
-		inf = 'MPS TEXT'
-	g_fileclass[f] = inf
+		try:
+			thefile.monkeypatch_mtime
+		except AttributeError:
+			thefile.monkeypatch_mtime = 0
+
+		if fn.endswith('.idump'):
+			with open(fullpath, 'rb') as f:
+				thefile.type = f.read(4)
+				thefile.creator = f.read(4)
+		elif fn.endswith('rdump'):
+			rez = open(fullpath, 'rb').read()
+			resources = resourcefork.iter_from_rezfile(rez)
+			resfork = resourcefork.rsrcfork_from_iter(resources)
+			thefile.rsrc = resfork
+		else:
+			thefile.data = open(fullpath, 'rb').read()
+
+		thefile.monkeypatch_mtime = max(thefile.monkeypatch_mtime, path.getmtime(fullpath))
+
+		tmptree[dirpath][basename] = thefile
+		tmptree[fullbase] = thefile
+
+for pathtpl, obj in g_volume.iter_paths():
+	try:
+		if obj.type == b'TEXT':
+			obj.data = obj.data.decode('utf8').replace('\n', '\r').encode('mac_roman')
+	except AttributeError:
+		pass
 
 ########################################################################
 
 nextstage('Dating files')
 
-def trytime(p):
-	t = []
-	try:
-		t.append(path.getmtime(p))
-	except FileNotFoundError:
-		pass
-	try:
-		t.append(path.getmtime(p + '.RezDump'))
-	except FileNotFoundError:
-		pass
-	return max(t)
+times = set()
+for pathtpl, obj in g_volume.iter_paths():
+	if isinstance(obj, File):
+		times.add(obj.monkeypatch_mtime)
 
-def datefiles(files):
-	tsbase = time.mktime(dt.date(1993, 12, 20).timetuple())
+ts2idx = {ts: idx for (idx, ts) in enumerate(sorted(set(times)))}
 
-	f2ts = {f: trytime(f) for f in files}
-	idx2ts = enumerate(sorted(set(f2ts.values())))
-	ts2idx = {ts: idx for (idx, ts) in idx2ts}
-	return {f: tsbase + 60*ts2idx[ts] for (f, ts) in f2ts.items()}
-
-g_filetime = datefiles(g_filetree)
-
-########################################################################
-
-nextstage('Copying to the build tree')
-
-g_tmp = tempfile.TemporaryDirectory()
-g_tmp.name = '/tmp/elmo'; os.system('rm -rf /tmp/elmo'); os.system('mkdir /tmp/elmo')
-
-for f in g_reztree:
-	d = path.dirname(f)
-	if d: os.makedirs(path.join(g_tmp.name, d), exist_ok=True)
-
-	newf = f.rpartition('.')[0]
-	sp.run(['Rez', '-o', path.join(g_tmp.name, newf), f])
-
-setfile_batch = {}
-for f in g_filetree:
-	d = path.dirname(f)
-	if d: os.makedirs(path.join(g_tmp.name, d), exist_ok=True)
-
-	fclass = g_fileclass[f]
-	ftime = g_filetime[f]
-
-	try:
-		with open(f, 'rb') as fd:
-			data = fd.read()
-	except FileNotFoundError:
-		pass
-	else:
-		if 'TEXT' in fclass:
-			data = data.replace(b'\n', b'\r')
-
-		opath = path.join(g_tmp.name, f)
-		with open(opath, 'wb') as fd:
-			fd.write(data)
-
-	os.utime(opath, (ftime, ftime))
-	
-	if fclass not in setfile_batch: setfile_batch[fclass] = []
-	setfile_batch[fclass].append(f)
-
-for fclass, flist in setfile_batch.items():
-	sp.run(['SetFile', '-c', fclass[:4], '-t', fclass[4:], *flist], cwd=g_tmp.name)
+for pathtpl, obj in g_volume.iter_paths():
+	if isinstance(obj, File):
+		obj.crdat = obj.mddat = 0x90000000 + 60 * ts2idx[obj.monkeypatch_mtime]
 
 ########################################################################
 
 nextstage('Creating BuildResults')
 
-for dname in ['Image', 'Lib', 'Obj', 'Rsrc', 'Text']:
-	os.makedirs(path.join(g_tmp.name, 'BuildResults', args.maker, dname), exist_ok=True)
+folder_levels = [
+	['BuildResults'],
+	['RISC', 'ROM', 'LC930', 'dbLite'],
+	['Image', 'Lib', 'Obj', 'Rsrc', 'Text'],
+]
+
+every_folder = [()]
+for level in folder_levels:
+	for i in reversed(range(len(every_folder))):
+		every_folder[i:i+1] = (every_folder[i] + (memb,) for memb in level)
+
+for folder_path in every_folder:
+	base = g_volume
+	for element in folder_path:
+		nextbase = base.get(element, Folder())
+		base[element] = nextbase
+		base = nextbase
 
 ########################################################################
 
@@ -153,9 +135,8 @@ nextstage('Splicing amphibian DNA into makefiles')
 OVERDIR = 'Amphibian'
 
 try:
-	overs = os.listdir(path.join(g_tmp.name, OVERDIR))
-	if not overs: raise FileNotFoundError
-except FileNotFoundError:
+	overs = g_volume[OVERDIR]
+except KeyError:
 	pass
 else:
 	overs_re = '|'.join(re.escape(x) for x in overs)
@@ -164,12 +145,12 @@ else:
 
 	failed = list(overs)
 
-	for f in g_filetree:
-		if not f.upper().endswith('.MAKE'): continue
-		with open(path.join(g_tmp.name, f), 'rb') as fd:
-			mfile = fd.read().split(b'\r')
+	for pathtpl, obj in g_volume.iter_paths():
+		if not isinstance(obj, File): continue
+		if not pathtpl[-1].upper().endswith('.MAKE'): continue
 
 		havechanged = False
+		mfile = obj.data.split(b'\r')
 		newmfile = []
 
 		idx = -1
@@ -200,8 +181,7 @@ else:
 				newmfile.append(mfile[idx])
 
 		if havechanged:
-			with open(path.join(g_tmp.name, f), 'wb') as fd:
-				fd.write(b'\r'.join(newmfile))
+			obj.data = b'\r'.join(newmfile)
 
 	if failed: # try to find where these override files with *no build rule* should go
 		found_locations = {k: [] for k in failed}
@@ -210,12 +190,11 @@ else:
 		overs_re = rb'^[^#]*"({\w+}(?:\w+:)*)(Thing.lib)"'.replace(b'Thing.lib', overs_re.encode('ascii'))
 		overs_re = re.compile(overs_re, re.IGNORECASE)
 
-		for f in g_filetree:
-			if not f.upper().endswith('.MAKE'): continue
-			with open(path.join(g_tmp.name, f), 'rb') as fd:
-				mfile = fd.read().split(b'\r')
+		for pathtpl, obj in g_volume.iter_paths():
+			if not isinstance(obj, File): continue
+			if not pathtpl[-1].upper().endswith('.MAKE'): continue
 
-			for line in mfile:
+			for line in obj.data.split(b'\r'):
 				m = overs_re.match(line)
 				if m:
 					orig_name = next(x for x in failed if x.upper() == m.group(2).decode('ascii').upper())
@@ -223,22 +202,20 @@ else:
 					if found_loc.upper() not in (x.upper() for x in found_locations[orig_name]):
 						found_locations[orig_name].append(found_loc)
 
-		with open(path.join(g_tmp.name, 'Make', 'RISC.make'), 'ab') as fd:
-			fd.write(b'\r# Rules created at build time by %s\r' % path.basename(__file__).encode('ascii'))
-			for orig_name, found_locs in found_locations.items():
-				if len(found_locs) == 1:
-					failed = [x for x in failed if x != orig_name]
-					fd.write(found_locs[0])
-					fd.write(b' \xC4 {Sources}%s:%s\r' % (OVERDIR.encode('ascii'), orig_name.encode('ascii')))
-					fd.write(b'\tDuplicate -y {Deps} {Targ}\r')
+		obj = g_volume['Make']['RISC.make']
+		obj.data = bytearray(obj.data)
+		obj.data.extend(b'\r# Rules created at build time by %s\r' % path.basename(__file__).encode('ascii'))
+		for orig_name, found_locs in found_locations.items():
+			if len(found_locs) == 1:
+				failed = [x for x in failed if x != orig_name]
+				obj.data.extend(found_locs[0])
+				obj.data.extend(b' \xC4 {Sources}%s:%s\r' % (OVERDIR.encode('ascii'), orig_name.encode('ascii')))
+				obj.data.extend(b'\tDuplicate -y {Deps} {Targ}\r')
 
-	print('Successfully edited: %d; Failed: %s' % (len(overs) - len(failed), ' '.join(failed) or 'none'))
+	print('Successfully edited: %d. Failed: %s.' % (len(overs) - len(failed), ' '.join(failed) or 'none'))
 
 ########################################################################
 
-nextstage('Running Make')
+nextstage('Spitting image')
 
-sp.run(['mpw', 'Make', '-f', ':Make:RISC.make', '-d', 'Sources=:'], cwd=g_tmp.name)
-
-
-
+open('%s.dmg' % g_volume.name, 'wb').write(g_volume.write(90*1024*1024))
