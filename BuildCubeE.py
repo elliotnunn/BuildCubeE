@@ -102,9 +102,21 @@ for pathtpl, obj in g_volume.iter_paths():
 
 ts2idx = {ts: idx for (idx, ts) in enumerate(sorted(set(times)))}
 
+linelist = []
+
 for pathtpl, obj in g_volume.iter_paths():
 	if isinstance(obj, File):
-		obj.crdat = obj.mddat = 0x90000000 + 60 * ts2idx[obj.monkeypatch_mtime]
+		mactime = 0x90000000 + 60 * ts2idx[obj.monkeypatch_mtime]
+		obj.crdat = obj.mddat = mactime
+		line = '%08X %s\r' % (mactime, ':'.join(pathtpl))
+		linelist.append(line.encode('mac_roman'))
+
+if linelist:
+	linelist.sort()
+	sync_list = File()
+	sync_list.type, sync_list.creator = b'TEXT', b'MPS '
+	sync_list.data = b''.join(linelist)
+	g_volume['List of Synced Files'] = sync_list
 
 ########################################################################
 
@@ -202,15 +214,16 @@ else:
 					if found_loc.upper() not in (x.upper() for x in found_locations[orig_name]):
 						found_locations[orig_name].append(found_loc)
 
-		obj = g_volume['Make']['RISC.make']
-		obj.data = bytearray(obj.data)
-		obj.data.extend(b'\r# Rules created at build time by %s\r' % path.basename(__file__).encode('ascii'))
-		for orig_name, found_locs in found_locations.items():
-			if len(found_locs) == 1:
-				failed = [x for x in failed if x != orig_name]
-				obj.data.extend(found_locs[0])
-				obj.data.extend(b' \xC4 {Sources}%s:%s\r' % (OVERDIR.encode('ascii'), orig_name.encode('ascii')))
-				obj.data.extend(b'\tDuplicate -y {Deps} {Targ}\r')
+		for boss in ['RISC', 'Universal', 'LC930', 'DBLite']:
+			obj = g_volume['Make']['%s.make' % boss]
+			obj.data = bytearray(obj.data)
+			obj.data.extend(b'\r# Rules created at build time by %s\r' % path.basename(__file__).encode('ascii'))
+			for orig_name, found_locs in found_locations.items():
+				if len(found_locs) == 1:
+					failed = [x for x in failed if x != orig_name]
+					obj.data.extend(found_locs[0])
+					obj.data.extend(b' \xC4 {Sources}%s:%s\r' % (OVERDIR.encode('ascii'), orig_name.encode('ascii')))
+					obj.data.extend(b'\tDuplicate -y {Deps} {Targ}\r')
 
 	print('Successfully edited: %d. Failed: %s.' % (len(overs) - len(failed), ' '.join(failed) or 'none'))
 
