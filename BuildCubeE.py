@@ -125,7 +125,7 @@ nextstage('Creating BuildResults')
 folder_levels = [
 	['BuildResults'],
 	['RISC', 'ROM', 'LC930', 'dbLite'],
-	['Image', 'Lib', 'Obj', 'Rsrc', 'Text'],
+	['Image', 'Lib', 'Obj:Interface', 'Rsrc', 'Text'],
 ]
 
 every_folder = [()]
@@ -136,9 +136,10 @@ for level in folder_levels:
 for folder_path in every_folder:
 	base = g_volume
 	for element in folder_path:
-		nextbase = base.get(element, Folder())
-		base[element] = nextbase
-		base = nextbase
+		for subelement in element.split(':'):
+			nextbase = base.get(subelement, Folder())
+			base[subelement] = nextbase
+			base = nextbase
 
 ########################################################################
 
