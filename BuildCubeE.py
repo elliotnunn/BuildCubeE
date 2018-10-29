@@ -5,7 +5,7 @@ import os
 import os.path as path
 import re
 from machfs import Volume, Folder, File
-import resourcefork
+import macresources
 
 ########################################################################
 # Logs
@@ -73,8 +73,8 @@ for dirpath, dirnames, filenames in os.walk('.'):
 				thefile.creator = f.read(4)
 		elif fn.endswith('rdump'):
 			rez = open(fullpath, 'rb').read()
-			resources = resourcefork.iter_from_rezfile(rez)
-			resfork = resourcefork.rsrcfork_from_iter(resources)
+			resources = macresources.parse_rez_code(rez)
+			resfork = macresources.make_file(resources)
 			thefile.rsrc = resfork
 		else:
 			thefile.data = open(fullpath, 'rb').read()
@@ -143,90 +143,20 @@ for folder_path in every_folder:
 
 ########################################################################
 
-nextstage('Splicing amphibian DNA into makefiles')
+nextstage('Disseminating amphibian DNA through disk')
 
 OVERDIR = 'Amphibian'
 
 try:
-	overs = g_volume[OVERDIR]
+	for name, obj in g_volume[OVERDIR].items():
+		*subdirs, file = name.split('-')
+		folder = g_volume
+		for s in subdirs:
+			folder = folder[s]
+		folder[file] = obj
+	del g_volume[OVERDIR]
 except KeyError:
 	pass
-else:
-	overs_re = '|'.join(re.escape(x) for x in overs)
-	overs_re = rb'^[^#\s]*\b(Thing.lib)"?\s*\xC4\s*'.replace(b'Thing.lib', overs_re.encode('ascii'))
-	overs_re = re.compile(overs_re, re.IGNORECASE)
-
-	failed = list(overs)
-
-	for pathtpl, obj in g_volume.iter_paths():
-		if not isinstance(obj, File): continue
-		if not pathtpl[-1].upper().endswith('.MAKE'): continue
-
-		havechanged = False
-		mfile = obj.data.split(b'\r')
-		newmfile = []
-
-		idx = -1
-		while idx + 1 < len(mfile):
-			idx += 1
-			m = overs_re.match(mfile[idx])
-			if m:
-				thefile = m.group(1)
-				havechanged = True
-				newmfile.append(b'# Rule replaced at build time by ' + path.basename(__file__).encode('ascii'))
-				failed = [x for x in failed if x.upper() != thefile.decode('ascii').upper()]
-
-				srcfile = b'{Sources}%s:%s' % (OVERDIR.encode('ascii'), thefile)
-				newmfile.append(m.group(0) + srcfile)
-				newmfile.append(b'\tDuplicate -y {Deps} {Targ}')
-
-				lastidx = idx # how many "old" lines should be commented out?
-				if mfile[idx].endswith(b'\xB6'):
-					while lastidx + 1 < len(mfile) and mfile[lastidx + 1].endswith(b'\xB6'):
-						lastidx += 1 # capture continuations of first line
-				while lastidx + 1 < len(mfile) and mfile[lastidx + 1].startswith(b'\t'):
-					lastidx += 1 # capture build lines starting with tab
-
-				while idx <= lastidx:
-					newmfile.append(b'#\t' + mfile[idx])
-					idx += 1
-			else:
-				newmfile.append(mfile[idx])
-
-		if havechanged:
-			obj.data = b'\r'.join(newmfile)
-
-	if failed: # try to find where these override files with *no build rule* should go
-		found_locations = {k: [] for k in failed}
-
-		overs_re = '|'.join(re.escape(x) for x in failed)
-		overs_re = rb'^[^#]*"({\w+}(?:\w+:)*)(Thing.lib)"'.replace(b'Thing.lib', overs_re.encode('ascii'))
-		overs_re = re.compile(overs_re, re.IGNORECASE)
-
-		for pathtpl, obj in g_volume.iter_paths():
-			if not isinstance(obj, File): continue
-			if not pathtpl[-1].upper().endswith('.MAKE'): continue
-
-			for line in obj.data.split(b'\r'):
-				m = overs_re.match(line)
-				if m:
-					orig_name = next(x for x in failed if x.upper() == m.group(2).decode('ascii').upper())
-					found_loc = m.group(1)+m.group(2)
-					if found_loc.upper() not in (x.upper() for x in found_locations[orig_name]):
-						found_locations[orig_name].append(found_loc)
-
-		for boss in ['RISC', 'Universal', 'LC930', 'DBLite']:
-			obj = g_volume['Make']['%s.make' % boss]
-			obj.data = bytearray(obj.data)
-			obj.data.extend(b'\r# Rules created at build time by %s\r' % path.basename(__file__).encode('ascii'))
-			for orig_name, found_locs in found_locations.items():
-				if len(found_locs) == 1:
-					failed = [x for x in failed if x != orig_name]
-					obj.data.extend(found_locs[0])
-					obj.data.extend(b' \xC4 {Sources}%s:%s\r' % (OVERDIR.encode('ascii'), orig_name.encode('ascii')))
-					obj.data.extend(b'\tDuplicate -y {Deps} {Targ}\r')
-
-	print('Successfully edited: %d. Failed: %s.' % (len(overs) - len(failed), ' '.join(failed) or 'none'))
 
 ########################################################################
 
