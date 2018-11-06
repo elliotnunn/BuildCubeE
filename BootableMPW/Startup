@@ -1,6 +1,6 @@
 #	Startup - MPW Shell Startup File
 #
-#	Copyright Apple Computer, Inc. 1985-1992
+#	Copyright Apple Computer, Inc. 1985-1993
 #	All Rights Reserved.
 
 
@@ -38,6 +38,20 @@
 			Set Commands ":,{MPW}Tools:,{MPW}Scripts:"
 			Export Commands
 			
+# 	{PrefsFolder} - Directory to search for userstartup and quit scripts. (Predefined.)
+#					The shell looks in the {PrefsFolder} and then the {MPW} 
+#					folder for startup and quit scripts.  {PrefsFolder} defaults to
+#					{SystemFolder}Preferences:MPW.  You may change this here, 
+#					or create an alias named MPW in the preferences folder to 
+#					reference the folder where you keep your startup
+#					scripts and worksheet.  
+			Export PrefsFolder
+			
+#	{TempFolder}  - Directory for temporary items.   (Predefined.)
+#					The shell may create some temporary items here.
+#					Defaults to {Boot}Temporary Items.
+			Export TempFolder
+		
 #	{AIncludes} - Directories to search for assembly language include files.			
 			Set AIncludes "{MPW}Interfaces:AIncludes:"
 			Export AIncludes
@@ -138,16 +152,30 @@
 #	The file UserStartup can be used to override definitions made in Startup,
 #	or to define additional variables, exports, and aliases.  UserStartup may
 #	also be used to define menu items, open windows, etc.  The file should be
-#	located in the directory containing the MPW Shell.
+#	located in the directory containing the MPW Shell, or in your preferences 
+# 	folder.
 
-			Execute "{ShellDirectory}UserStartup"
-
+			If "{PrefsFolder}" && "`Exists "{PrefsFolder}UserStartup"`"
+				Execute "{PrefsFolder}UserStartup"
+			Else
+				Execute "{ShellDirectory}UserStartup"
+			End
+			
 #	Since UserStartup is distributed with MPW, you may want to have other
 #	startup files that will not be overwritten with a new release.
 #	Other personalized startup files may be named UserStartup•≈ - such as 
 #	"UserStartup•John" or "UserStartup•Tom"  (• is option-8).
-#	These files should be located in the directory containing the MPW Shell.
+#	These files should be located in the directory containing the MPW Shell,
+#	or in the {PrefFolder}.  The following executes such files found in either 
+#   place.
 
+			If "{PrefsFolder}"
+				For __Startup__i in `(Files "{PrefsFolder}"UserStartup•≈ || Set Status 0) ≥ dev:null`
+					Execute "{__Startup__i}"
+				End
+				Unset __Startup__i
+			End
+			
 			For __Startup__i in `(Files "{ShellDirectory}"UserStartup•≈ || Set Status 0) ≥ dev:null`
 				Execute "{__Startup__i}"
 			End

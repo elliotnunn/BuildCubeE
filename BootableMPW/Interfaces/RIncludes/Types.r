@@ -1,91 +1,14 @@
 /*
-	File:		Types_r
+	File:		Types.r
 
-	Contains:	Type Declarations for Rez and DeRez
+	Copyright:	© 1983-1993 by Apple Computer, Inc.
+				All rights reserved.
 
-	Copyright:	© 1986-1992 by Apple Computer, Inc., all rights reserved.
+	Version:	System 7.1 for ETO #11
+	Created:	Tuesday, March 30, 1993 18:00
 
-	Change History (most recent first):
-
-	   <21+>	 6/23/92	DCL		Changed #ifndef __TYPES.R__ to __TYPES_R__
-		<21>	 11/8/91	JL		Took out aedt resource template because it's obsolete. As per Ed
-									Lai.
-		<20>	  1/7/91	JDR		(dba) Renaming old Switcher constants used in the SIZE resource
-									to Reserved.
-		<19>	12/16/90	KIP		<csd> If SystemSevenOrLater is undefined, define it to be zero.
-		<18>	12/14/90	dba		<JDR> change SystemSevenOrBetter to SystemSevenOrLater
-		<17>	 11/7/90	JNG		Change popupMenuCDEFproc to a #define <kaz>
-		<16>	 10/24/90	JL		New MPW 3.2ß.  Also added movableDBoxProc to DLOG and WIND.
-		<15>	 9/16/90	VL		Replaced old-style 'wctb' and 'cctb' with 7.0 extended ones.
-		<14>	 9/15/90	PWD		Renamed popupUseCQD to popupReserved. <kaz> <crz>
-		<13>	 8/31/90	JT		Added a bit in the MultiFinder SIZE resource that determines
-									whether the inline text services are automatically used when the
-									application uses TextEdit.
-		<12>	 7/17/90	PKE		Deleted ‘kscn’ type (see <1.2>), since it is now superseded by
-									keyboard icon suite (kcs#, etc. - see <8>).
-		<11>	 6/21/90	DC		Put the align word in DLOG's and WIND's into the IF
-									systemsevenorbetter.  Protected Pict definition with __PICT.R__
-		<10>	  6/8/90	DC		Handled the case when SystemSevenOrBetter is not defined
-		 <9>	  6/7/90	DC		Modified ALRT, DLOG and WIND templates to allow
-									auto-positioning.
-		 <8>	 5/12/90	SMB		Added new keyboard small icon types (KCN#, kcs#, kcl4, kcl8,
-									kcs4, kcs8) for the Keyboard Menu since script systems' IDs for
-									small icons (SICNs) can collide with applications IDs for SICNs
-									- apps can use >= 128 and script systems' IDs can be anything >=
-									0!
-		 <7>	 3/22/90	RLC		Modify helpItem definition in 'DITL' type.
-		 <6>	 3/20/90	ngk		Fixed comments
-		 <5>	 3/20/90	ngk		New bits for SIZE type definition
-		 <4>	 3/16/90	BBH		added constants for popupCDEF in the CNTL area
-		 <3>	  3/5/90	csd		added type definitions for icl8, icl4, ics8, and ics4.
-		<2.2>	01/12/90	JAL		added 'acur' type
-		<2.1>	02/28/90	JAL		added dflg, qrsc, wstr, ppt#, ics#, and RECT types
-		 <2>	12/19/89	JSM		Add Database Access Manager types.
-	   <1.5>	11/20/89	RLC		Add in constants to HelpItem in 'DITL'.
-	   <1.4>	11/20/89	RLC		Change the 'DITL' resource type to include the HelpItem type.
-	   <1.3>	 10/3/89	dba		added 'ics#' template
-	   <1.2>	 9/18/89	PKE		Added type 'kscn' (keyboard/script small icon) as 'SICN'.
-	   <1.1>	 8/30/89	dba		improved Color QuickDraw-related templates so that fields are
-									automatically filled in for values that can’t change in today’s
-									version of CQD; this makes these resource definitions much
-									easier to read; added #defines for ALRT stages and RGB colors;
-									added a trial definition for ppt# that Rez can’t really handle
-									yet
-	   <1.0>	 8/21/89	CCH		Checking in from MPW 3.0 RIncludes.
-
-	06/21/90	- JAL:  Added eppc definiton
-	06/20/90	- JAL:  Added aedt definiton
-	05/22/90	- JAL:  Changed color resources without PixMapRowBytes definiton
-						which wouldn't work with DeRez
-	04/13/90	- JAL:  Added acceptAppDiedEvents and ignoreAppDiedEvents synonym to
-						the new SIZE resource for compatibility.
-	04/10/90	- JAL:  Added old MPW 3.1 templates for derez compatibility
-						and added synonyms for the new SIZE resource for compatibility.
-	11/20/89	- RLC:  Add in constants to HelpItem in 'DITL'.
-	11/20/89	- RLC:  Change the 'DITL' resource type to include the HelpItem
-						type.
-	10/03/89	- dba:  added 'ics#' template
-	09/18/89	- PKE:  Added type 'kscn' (keyboard/script small icon) as 'SICN'.
-	08/30/89	- dba: improved Color QuickDraw-related templates so that fields are automatically
-						filled in for values that can’t change in today’s version of CQD; this makes these
-						resource definitions much easier to read; added #defines for ALRT stages and RGB colors;
-						added a trial definition for ppt# that Rez can’t really handle yet
-	08/21/89	- CCH: Checking in from MPW 3.0 RIncludes.
-
-	03/20/89	- THT: added #ifndef __TYPES.R__
-	10/24/88	- THT: added is32BitCompatible to SIZE and changed the bitstring
-					   of unused bits into separate booleans so next time
-					   we define a new flag, we won't break exisiting SIZE
-					   resources.
-	06/09/88	- THT: added onlyBackground and getFrontClicks bits to SIZE.
-	12/03/87	- THT: made length of PICT unsigned.
-	12/02/87	- THT: changed SIZE resource so that it supports Switcher
-					   and MultiFinder.
-	10/12/87	- THT: changed SIZE resource to support new
-					   MultiFinder flags.  It no longer
-					   supports Switcher.
-	08/14/87	- THT: changed 'cicn', 'ppat', 'crsr' to use labels.
 */
+
 
 #ifndef __TYPES_R__
 #define __TYPES_R__

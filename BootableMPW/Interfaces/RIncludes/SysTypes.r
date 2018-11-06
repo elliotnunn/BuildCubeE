@@ -1,105 +1,14 @@
 /*
 	File:		SysTypes.r
 
-	Copyright:	© 1986-1992 by Apple Computer, Inc., all rights reserved.
+	Copyright:	© 1983-1993 by Apple Computer, Inc.
+				All rights reserved.
 
-	Change History (most recent first):
+	Version:	System 7.1 for ETO #11
+	Created:	Tuesday, March 30, 1993 18:00
 
-	   <25+>	 6/23/92	DCL		Changed #ifndef __SYSTYPES.R__ to __SYSTYPES_R__
-		<25>	 3/30/92	PKE		#1022875,<ha>: Udate KSWP template to include RomanIfOthers
-									action (corresponds to smKeyRoman KeyScript verb) that sets
-									keyboard script to Roman if other scripts are also installed;
-									otherwise it does nothing, and corresponding key combination is
-									not stripped from event queue.
-		<24>	10/28/91	SAM/KSM	Rolled in Regatta file.
-	
-	Regatta Change History:
-
-		 <3>	 6/14/91	SAM		Added DAF's pslt definition.
-
-	7.0 Change History:
-
-		<23>	 9/25/91	PKE		For Cube-E (and Bruges): Add system flags (currently just line
-									direction) to 'itlc' resource to save user prefs for global
-									states that have some representation (such as TESysJust) outside
-									the SMgrRecord.
-		<22>	 7/30/91	PKE		Fix ‘itl1’ template by adding “align word” between tables in
-									extended format.
-		<21>	  1/3/91	JDR		(dba) Encode field of a snd is missing. It is the upper byte of
-									the old baseFrequency INTEGER.
-		<20>	12/15/90	PKE		(csd) Add RotateKybd constant for first field of ‘KSWP’.
-		<19>	11/29/90	JDR		<KIP> Found a bug in the snd templete that I created since the
-									Rez syntax is so obvious I'm surprised I didn't notice it
-									before.
-		<18>	11/14/90	JDR		Correcting interfaces to match the documentation.  Removed sound
-									commands that cannot be used by a snd resource.
-		<17>	11/10/90	JDR		Corrected the 'snd ' resource.  First, get rid of references to
-									"note" to satisfy the Apple Legal.  Second, changed names of
-									'snth' within the 'snd ' resource to properly match standard
-									interfaces and documentation.  Third, corrected 22k sample rate.
-		<16>	 9/18/90	PKE		Update 'itl2' and 'itl4' types.
-		<15>	 9/18/90	dba		merge with 3.2b1
-		<14>	 8/29/90	stb		define resf type so 7.0 can use it rather than FRSV
-		<13>	 7/17/90	PKE		Changed reserved field in itlb to be optional itl5 id, fixed a
-									comment.
-		<12>	 6/22/90	PKE		Updated 'FONT' type to 1986 level: added optional width and
-									height tables, per Charles Williams. Updated Script, Language,
-									and Region defines to use new constant names.
-		<11>	  6/3/90	csd		Added type declaration for FRSV -16493.
-		<10>	 5/29/90	PKE		Added bytes for valid style and alias style to 'itlb' type.
-									Added list of additional separators to 'itl1'.
-		 <9>	 5/21/90	PKE		Added region code table to itlm type. Separated 'itl1' type from
-									'INTL' (1), and modified it to permit an optional extension for
-									abbreviated day/month names and a few other things. Added
-									verArabic to Region list. Use smTradChinese and smSimpChinese
-									instead of smChinese; use langTradChinese and langSimpChinese
-									instead of langChinese.
-		 <8>	  5/2/90	PKE		Rearranged 'itlm' resource format: Store pairs of <scriptcode,
-									default langcode> in the order we would like scripts to sort,
-									and pairs of <langcode, parent scriptcode> in the order we would
-									like languages to sort. Added 'itlm' format code and maximum
-									sizes for the internal tables that will be built from the 'itlm'
-									resource.
-		 <7>	 4/25/90	PKE		Added Script and Language defines. Added 'itlm' type:
-									multiscript mapping/sorting data. Re-added BBS header.
-		 <6>	 3/21/90	PKE		Updated itlb type: added field for script local record
-		 							size; added fields for font/size info; changed resource
-									ID fields from unsigned integer to integer.
-		 <5>	 3/15/90	JSM		Add 'ppcc', PPC Browser configuration resource.
-		 <4>	  2/1/90			Official MPW version. Blasted the header.
-		 <3>	 1/17/90	PKE		Added field to itlc type for region code (preferred
-		 							verXxx). Changed “Country” to “Region”.
-		 <2>	 1/17/90	PKE		Added several more verXxx codes. Updated itlc resource
-		 							type to MPW 3.1 level. Updated header to BBS format.
-
-	10/08/87	- THT: fixed scrn, flags were in wrong order.
-	10/08/87	- THT: changed FONT & FOND definitions to use labels.
-	10/08/87	- THT: added 'snd ' resource.
-	12/09/87	- THT: added verIreland through verThailand to Country.
-	02/29/88	- THT: added more specific bit information to KSWP and
-					   changed the array size definition so that it
-					   would derez properly.
-	04/18/88	- THT: added 'vers' resource definition.
-	06/30/88	- THT: added synth values to 'snd '.
-	09/20/88	- THT: added verIndia & verPakistan country codes.
-	09/20/88	- THT: added 'itl2' & 'itl4' resource definitions.
-	09/28/88	- THT: added 'mcky' and 'finf' resource definitions.
-	11/09/88	- THT: updated 'snd ' according to new documentation.
-	11/29/88	- THT: added replace bit to CommFlags of 'insc'.
-	12/06/88	- THT: changed definition of 'itlb' and 'itlc'.
-	02/03/89	- THT: changed 'FONT' to support pixel depths > 1 for NFNT
-	02/08/89	- THT: change verGemany to verGermany
-	03/20/89	- THT: added #ifndef __SYSTYPES.R__
-	04/12/89	- THT: added fields to itlc for script icon
-	04/12/89	- THT: added 'itlk' resource definition
-	04/12/89	- THT: added new 'itl2' resource definition
-	05/08/89	- THT: doctored up 'INTL' (0) with new constants: monYearDay,
-					   dayYearMon, yearDayMon, and twelveHourZeroCycle.
-	09/06/89	- THT: added Faroese, Farsi, and Cyrillic to Country list.
-	01/11/90	- JAL: added Hindi, Poland, Hungary, Estonia, Latvia, Lapland, and Lithuania to Country list.
-	01/12/90	- JAL: changed Farsi to Iran, Faroese to FaroeIsl and Cyrillic to Russia in Country list.
-	01/12/90	- JAL: added 'mach' type
 */
+
 
 #ifndef __SYSTYPES_R__
 #define __SYSTYPES_R__

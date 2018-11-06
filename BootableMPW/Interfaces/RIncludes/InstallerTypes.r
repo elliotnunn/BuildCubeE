@@ -1,12 +1,56 @@
 /*
+	LEGALESE:	© 1988-1990 Apple Computer, Inc.  All Rights Reserved
 	
-	Files:	InstallerTypes.r
+	PROJECT:	Installer 3.3
 	
-	© 1988-1990 Apple Computer, Inc.  All Rights Reserved
-
+	PROGRAM:	Installer
+	
+	AUTHORS:	Bruce Jones, Cindy Frost, Bobby Carp
+	
 	PURPOSE:	This file contains all the resource templates necessary to
 				create installer scripts.
 
+	CHANGE HISTORY (most recent first):
+
+		<28>	 6/16/91	KBA		Add defines for resource attributes.  Removed 2nd version of
+		<27>	 5/14/91	KBA		Added flag to Format1 for stopping cursors during action atom.
+									Created 2nd version inra with split resource info.
+		<26>	 4/18/91	KBA		Moved to new project InstallerTypes. Added 'inff' template for
+									installing split font resources.
+		<25>	 1/15/91	BAC		Changing project to Installer 3.2.
+		<24>	 1/10/91	BAC		Adding the type definition for the 'invs' required Installer
+									application version resource.
+		<22>	 12/6/90	BAC		Changing 'alwaysCopy' (opposite of updateOnly) to something that
+									doesn't semantically conflict with keepExisting.
+		<21>	 12/5/90	BKJ		Clean up capitalization as per Jon Zap's request.
+		<20>	11/27/90	BKJ		Let scriptwriters have control of when an installation requires
+									a restart. This means adding the dontForceRestart/forceRestart
+									flag to packages.
+		<19>	 11/2/90	BAC		We need to define REGION for people who are using pre-7.0
+									interfaces.
+		<18>	 11/2/90	BKJ		Fix typos
+		<17>	  9/3/90	BAC		Added the LONGINT refCon field to the 'inaa' and
+									checkUserFunction definitions.
+		<15>	  8/1/90	BKJ		Fixing bug in indo resource template
+		<14>	 7/28/90	BKJ		Add AlwaysTrue key resource type
+				 7/13/90	BKJ		Fixing Format for the Facist Nazi Header stuff
+				 4/27/90	BKJ		Cleaned up for Developer's Conference release.  Removed all old
+									Default Maps stuff.
+				  4/5/90	BKJ		Added 3 new clause types - reportError, addAuditRecord, checkAuditRecord
+				 2/14/90	BKJ		Added 'indo' template for ordering disks.  (Happy Valentine's Day)
+				 12/2/89	BKJ		Changed format1 default maps to rules & default maps
+									groups to rule frameworks
+				 9/12/89	BKJ		Made major changes for support of format1 default maps
+				 9/12/89	BKJ		Changed 'indg' to support a list of IDs rather than a range
+				 9/12/89	CIF		Added types for Installer action atoms
+				 9/11/89	BKJ		Added types for default map groups
+				 9/11/89	BKJ		Forked off of 6.0.4 final
+				 7/25/89	BKJ		Added support for international keyboards
+				 2/17/89			ALPHA 7 Release
+				 1/12/89			ALPHA 6 Release
+				12/19/88			ALPHA 5
+				 5/26/88	CIF		Created
+				 9/14/88			ALPHA 2 Release
 */
 
 
@@ -308,24 +352,41 @@ type 'inbb' {
 
 /*
 § --------------------------------- Action Atoms ---------------------------------*/
-#define	actionAtomFlags																				\
-		fill bit[13]; 																				\
-		boolean		actAfter,					/* Call this proc after all installations */		\
-					actBefore;					/* Call this proc before all installations */		\
-		boolean		dontActOnRemove, 																\
-					actOnRemove;				/* Call this proc when doing a remove */			\
-		boolean		dontActOnInstall, 																\
-					actOnInstall				/* Call this proc when doing an Install */
 
+#define	whenToActAAFlags																					\
+		boolean		actAfter,				/* Call this proc after all installations */					\
+					actBefore;				/* Call this proc before all installations */					\
+		boolean		dontActOnRemove, 																		\
+					actOnRemove;			/* Call this proc when doing a remove */						\
+		boolean		dontActOnInstall, 																		\
+					actOnInstall			/* Call this proc when doing an Install */
+
+
+#define	actionAtomFlagsFormat0																				\
+		fill bit[13];																						\
+		whenToActAAFlags
+
+#define	actionAtomFlagsFormat1																				\
+		fill bit[12]; 																						\
+		boolean		continueBusyCursors,	/* Allow Installer busy cursor during call (3.3+ Only) */		\
+					suspendBusyCursors;		/* Stop Installer busy cursor before call (3.3+ Only) */		\
+		whenToActAAFlags
 
 type 'inaa' {
 		switch {
 			case format0:
-				key integer = 0;							/* Action Atom Format version */
-				actionAtomFlags;							/* Action Atom Flags		  */
-				partSpec;									/* Resource type & id for executable resource */
-				longint;									/* RefCon that's passed to the executable resource */
-				evenPaddedString;							/* Atom Description     */
+				key integer = 0;			/* Action Atom Format version */
+				actionAtomFlagsFormat0;		/* Action Atom Flags for Format 0 */
+				partSpec;					/* Resource type & id for executable resource */
+				longint;					/* RefCon that's passed to the executable resource */
+				evenPaddedString;			/* Atom Description     */
+				
+			case format1:
+				key integer = 1;			/* Action Atom Format version.  Use with Installer 3.3 and newer */
+				actionAtomFlagsFormat1;		/* Action Atom Flags for Format 1 */
+				partSpec;					/* Resource type & id for executable resource */
+				longint;					/* RefCon that's passed to the executable resource */
+				evenPaddedString;			/* Atom Description     */
 		};
 };
 
@@ -587,3 +648,71 @@ type 'invs' {
 			pstring;												/* Short version number	*/
 	};
 };
+
+
+
+/*
+§ -------------------------------- Font Atom & Split Atom Stuff ---------------------------------*/
+
+#define	Style																					\
+	fill bit[9];										/* Reserved */							\
+	Boolean		noExtendedStyle, extendedStyle;			/* Exteneded style */					\
+	Boolean		noCondensedStyle, condensedStyle;		/* Condensed style */					\
+	Boolean		noShadowStyle, 	shadowStyle;			/* Shadow style */						\
+	Boolean		noOutlineStyle, outlineStyle;			/* Outline style */						\
+	Boolean		noUnderlineStyle, underlineStyle;		/* Underline style */					\
+	Boolean		noItalicStyle, italicStyle;				/* Italic style */						\
+	Boolean		noBoldStyle, boldStyle;					/* Bold style */
+
+#define	RsrcSpec																				\
+		fileSpecID;										/* File spec for this resource */		\
+		rsrcType;										/* Type of the resource	*/				\
+		rsrcID;											/* ID of the resource */				\
+		unsigned longInt;								/* Size in bytes of this resource	*/	\
+		evenPaddedString								/* Name of the resource */				
+
+#define	SrcPartsList									/* The list of pieces */				\
+		integer = $$CountOf (Parts);					/* How many of them? */					\
+		wide array Parts {																		\
+			RsrcSpec;									/* Description of this piece */			\
+		}
+
+#define resSysHeap		64								/* Defines for resource attributes */
+#define resPurgeable	32
+#define resLocked		16
+#define resProtected	8
+#define resPreload		4
+#define resChanged		2
+
+#define Strike																					\
+	integer;											/* Font size */							\
+	Style;												/* Which styles? */						\
+	RsrcType;											/* Target Font Resource Type */			\
+	integer;											/* Target Attributes */					\
+	SrcPartsList;										/* All of the pieces */
+	
+type 'inff' {
+	switch {
+		case format0:
+			key integer = 0;							/*format version 0 */
+			resourceAtomFlags;							/* flags */
+			fileSpecID;									/* Target File Spec */
+			fileSpecID;									/* Source File Spec of the FOND and all pieces, unless overriden by a split definition */
+			integer;									/* Target FOND Attributes */
+			unsigned longInt;							/* size in bytes of the complete family set */
+			rsrcID;										/* source FOND's resource ID */
+			switch {
+			case entireFamily:
+			 	key integer = 1;
+			case explicitFamilyMembers:
+				key integer = 2;
+				unsigned integer = $$CountOf(StrikeEntries);
+				wide array StrikeEntries {
+					Strike;								/* Source for each of the points */
+				};
+			};
+			evenPaddedString;							/* Atom Description */
+			evenPaddedString;							/* the exact family name */
+	};
+};
+			

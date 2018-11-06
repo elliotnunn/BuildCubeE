@@ -23,7 +23,7 @@
 #
 #	MergeBranch calls the script CompareFiles.
 #
-#	© Apple Computer, Inc. 1988 - 1990
+#	© Apple Computer, Inc. 1988 - 1993
 #	All rights reserved.
 
 Set Exit 0
@@ -38,7 +38,7 @@ Begin
 	
 	#	Make sure the file exists
 
-	If "" == "`Exists -f "{1}"`"
+	If "" == "`Exists -f -q "{1}"`"
 		Echo "### {0} - File ∂"{1}∂" not found"
 		Exit 4
 	End
@@ -56,18 +56,18 @@ Begin
 		End
 	End
 
-	Set path "{dir}{f}"
+	Set path `Files -f "{dir}{f}"`
 
 	#	Get project information on the file.
 	
-	Set info1 "`projectinfo -comments "{path}"`"
+	Set info1 "``projectinfo -comments "{path}"``"
 
-	If "{info1}" =~ /[∂']*(≈)®1,([¬ ∂']+)®2[∂']* ≈Project: (≈∫)®3≈    Task: (≈)®4[ ]«5»Comment: (≈)®5/
+	If "{{info1}}" =~ /[∂']*(≈)®1,([¬ ∂']+)®2[∂']* ≈Project: (≈∫)®3≈    Task: (≈)®4[ ]«5»Comment: (≈)®5/
 		Set file "{®1}"
 		Set rev "{®2}"
 		Set proj "{®3}"
-		Set task "{®4}"
-		Set comment "Merged from branch {rev}.  {®5}"
+		Set task "{{®4}}"
+		Set comment "Merged from branch {rev}.  {{®5}}"
 	End
 	
 	#	Make sure the file is a branch revision.
@@ -82,8 +82,8 @@ Begin
 	
 	If "{rev}" =~ /≈∂+/ OR "{rev}" =~ /≈∂*/
 		CheckIn -y "{path}" ≥dev:null				
-		Set info1 "`projectinfo "{path}"`"
-		If "{info1}" =~ /[∂']*(≈)®1,([¬ ∂']+)®2[∂']* ≈Project: (≈∫)®3≈/
+		Set info1 "``projectinfo "{path}"``"
+		If "{{info1}}" =~ /[∂']*(≈)®1,([¬ ∂']+)®2[∂']* ≈Project: (≈∫)®3≈/
 			Set file "{®1}"
 			Set rev "{®2}"
 			Set proj "{®3}"
@@ -92,13 +92,13 @@ Begin
 	
 	#	Get projectinfo on the file's latest trunk revision.
 	
-	Set info2 "`projectinfo -latest -s -project "{proj}" "{f}" ≥ dev:null`"
-	If "{info2}" == ""
+	Set info2 "``projectinfo -latest -s -project "{proj}" "{f}" ≥ dev:null``"
+	If "{{info2}}" == ""
 		Alert "Project ∂"{proj}∂" is not mounted."		
 		Exit 4
 	End
 	
-	If "{info2}" =~ /[∂']*(≈)®1,([¬ ∂']+)®2[∂']*/
+	If "{{info2}}" =~ /[∂']*(≈)®1,([¬ ∂']+)®2[∂']*/
 		Set file2 "{®1}"
 		Set rev2 "{®2}"
 	Else
@@ -109,8 +109,9 @@ Begin
 	#	Is the file open as a window?
 	
 	Set wind 0
+	Unset CaseSensitive
 	For i in `Windows`
-		If "{path}" == "{i}"
+		If "{path}" =~ /{i}/
 			Set wind 1
 			Break
 		End
@@ -120,7 +121,7 @@ Begin
 
 	Set branchf "{path},{rev}"
 	Rename -y "{path}" "{branchf}"
-	CheckOut "{path}" -m -t "{task}" -cs "{comment}" -project "{proj}"
+	CheckOut "{path}" -m -t "{{task}}" -cs "{{comment}}" -project "{proj}"
 		
 	#	If the revisions on the trunk are older than the branch rev then
 	#  		checkin the branch on the trunk (we don't need to merge).
@@ -128,19 +129,29 @@ Begin
 	
 	If "{rev}" =~ /{rev2}≈/
 	
-		Echo "Include ∂"{path}∂" 'ckid';" | Rez -m -a -o "{branchf}"
+		Echo "Include ∂"{path}∂" 'ckid';" | Rez -m -a -o "{branchf}" -noResolve output
 	
 		Rename -y "{branchf}" "{path}"
 		
 		If "{wind}"
-			Close "{path}"
-			Open "{path}"
+			If "{path}" =~ /"{active}"/
+				Close "{path}"
+				Open "{path}"
+			Else
+				Close "{path}"
+				Target "{path}"
+			End
 		End
 		
 		CheckIn "{path}"
 
 	Else
 	
+		If Not `Files -t TEXT "{path}"` Or `Exists -a "{path}"`
+			Echo "### {0} - Unable to interactively compare non-TEXT files." ≥≥dev:stderr
+			Exit 2
+		End
+
 		Open "{path}"
 
 		CompareFiles "{branchf}" "{path}"

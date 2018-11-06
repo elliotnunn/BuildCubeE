@@ -5,10 +5,12 @@
 #	OrphanFile removes the ckid resource (if it exists) from a
 #	list of files. 
 #
-#	© Apple Computer, Inc. 1988 - 1990
+#	© Apple Computer, Inc. 1988 - 1993
 #	All rights reserved.
 
-Set Exit 0  
+Set Echo 0
+Set Exit 0
+Unset CaseSensitive
 	
 #	Check the parameters
 
@@ -21,7 +23,7 @@ End
 For name in {"parameters"}
 	Begin
 		If "`Exists -f "{name}"`" != ""
-			Set path `Files -f "{name}"`
+			Set path `Files -fr "{name}"`
 			Set wind 0
 			For i in `Windows`
 				If "{path}" =~ /"{i}"/		## Make NOT case-sensitive
@@ -29,7 +31,7 @@ For name in {"parameters"}
 					Break
 				End
 			End
-			Echo "Delete 'ckid';" | Rez -a -m -o "{name}"
+			Echo "Delete 'ckid';" | Rez -a -m -o "{name}" -noResolve output
 			If {wind}
 				If "{path}" =~ /"{active}"/
 					Close "{name}"

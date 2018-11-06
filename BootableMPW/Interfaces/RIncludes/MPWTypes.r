@@ -1,19 +1,14 @@
 /*
-	MPWTypes.r -- Type Declarations for Rez and DeRez
-	
-	Copyright Apple Computer, Inc. 1986-1991
-	All rights reserved.
-    This file is used in these builds: ROM System
+	File:		MPWTypes.r
 
+	Copyright:	© 1983-1993 by Apple Computer, Inc.
+				All rights reserved.
 
+	Version:	System 7.1 for ETO #11
+	Created:	Tuesday, March 30, 1993 18:00
 
-	Change History (most recent first):
-
-		<2+>	 6/23/92	DCL		Changed #ifndef __MPWTYPES.R__ to __MPWTYPES_R__
-		 <2>	  8/8/91	JL		Updated Copyright.
-
-	To Do:
 */
+
 
 #ifndef __MPWTYPES_R__
 #define __MPWTYPES_R__

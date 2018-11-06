@@ -1,15 +1,14 @@
 /*
 	File:		Cmdo.r
 
-	CMDO.R    - Resource description file for building Commando resources.
+	Copyright:	© 1983-1993 by Apple Computer, Inc.
+				All rights reserved.
 
-	Copyright:	© 1992 by Apple Computer, Inc., all rights reserved.
-
-	Change History (most recent first):
-
-		<1+>	 6/23/92	DCL		Changed #ifndef __CMDO.R__ to __CMDO_R__
+	Version:	System 7.1 for ETO #11
+	Created:	Tuesday, March 30, 1993 18:00
 
 */
+
 
 
 #ifndef __CMDO_R__

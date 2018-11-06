@@ -10,8 +10,8 @@
 #		as it is executed.  The commands can be in either a file or the
 #		current selection.  If a CommandFile is passed to doit the file is
 #		opened (as the active window) and each line (multiple lines if a "∂"
-#		is present at the end of a line) is executed.  The window
-#		is closed when all the commands have been processed.
+#		is present at the end of a line) is executed.  The window is left open
+#		if it was already open or closed if it was not.
 #
 #	OPTIONS:
 #		-e[cho]			Each command is echo to the Worksheet before execution.
@@ -19,6 +19,7 @@
 #							remaining commands (including the command that failed)
 #							are written to the Worksheet and marked by "ToDo".
 #		-s[election]	Execute the commands in the current selection.
+#		-c[ontinue]		Don't stop executing commands if any return bad status.
 #
 #	SPECIAL NOTE:
 #		The initial overhead is fairly substantial (on a MacPlus) when executing
@@ -41,13 +42,14 @@ Unset CommandFile
 Unset EchoCmds
 Unset DumpCmds
 Unset CurSel
+Unset DontStop
 
 Set OldExit {Exit}
 Set Cmd "{0}"
 Set Syntax "(CommandFile [-echo] [-dump]) | [-selection]"
 Set Error 0
 
-For Arg In {"Parameters"}								# Parse the command line
+For Arg In {"Parameters"}							# Parse the command line
 
 	# Checking for the echo option - echo commands before they are executed
 	If "{Arg}" == "-e" || "{Arg}" == "-echo"
@@ -66,11 +68,20 @@ For Arg In {"Parameters"}								# Parse the command line
 			Echo "### {Cmd} - option ∂"{Arg}∂" multiply defined"
 			Set Error 1
 		End
-
+	
 	# Checking for the selection option - commands are in the current selection
 	Else If "{Arg}" == "-s" || "{Arg}" == "-selection"
 		If {CurSel} == 0
 			Set CurSel 1
+		Else
+			Echo "### {Cmd} - option ∂"{Arg}∂" multiply defined"
+			Set Error 1
+		End			
+
+	# Checking for the selection option - commands are in the current selection
+	Else If "{Arg}" == "-c" || "{Arg}" == "-continue"
+		If {DontStop} == 0
+			Set DontStop 1
 		Else
 			Echo "### {Cmd} - option ∂"{Arg}∂" multiply defined"
 			Set Error 1
@@ -80,7 +91,7 @@ For Arg In {"Parameters"}								# Parse the command line
 	Else If "{Arg}" =~ /-≈/ || "{Arg}" == -
 		Echo "### {Cmd} - ∂"{Arg}∂" is not an option"
 		Set Error 1
-
+	
 	# Found the command file
 	Else
 		If "{CommandFile}" == 0
@@ -102,9 +113,9 @@ If ("{CommandFile}" == "" && !{CurSel})
 	Set Error 1
 End > Dev:StdErr
 
-If {Error}													# Were there any syntax errors?
+If {Error}											# Were there any syntax errors?
 	Echo "# Usage - {Cmd} {Syntax}"
-	Exit {Error}											# Exiting (because of syntax error)
+	Exit {Error}									# Exiting (because of syntax error)
 End > Dev:StdErr
 
 Set Exit 0													# we’ll handle the errors, thank you
@@ -116,26 +127,26 @@ If {CurSel}
 	Set MyActive "{Active}"
 	Mark -y § DoIt "{MyActive}"						# mark all the commands to be executed
 	Set NumCmds `Count -l "{MyActive}".§`
-
+	
 	If {NumCmds} > 0
 		Set NumEscapes `Search -q /≈∂∂∞/ "{MyActive}".§ ≥ Dev:Null | Count -l`
 		Evaluate NumCmds = {NumCmds} - {NumEscapes}
-
+	
 		Find ∆DoIt "{MyActive}"							# Goto top of Commands to be executed
-
-		Set cCmd 0											# Initialize command counter
+		
+		Set cCmd 0										# Initialize command counter
 		Loop
-			Find /•/ "{MyActive}"						# Find beginning of next line
-			Find §:/[¬∂∂]∞/ "{MyActive}"				# Find from § to end of command
-			Evaluate cCmd += 1							# Increment command counter
-			Execute "{MyActive}".§						# Execute the command
+			Find /•/ "{MyActive}"					# Find beginning of next line
+			Find §:/[¬∂∂]∞/ "{MyActive}"			# Find from § to end of command
+			Evaluate cCmd += 1						# Increment command counter
+			Execute "{MyActive}".§					# Execute the command
 			Set commandStatus {Status}
 			If {commandStatus} ≠ 0
 				Set Error {commandStatus}					# Capture and save status
 			End
-			Break If (({OldExit} && {Error} ≠ 0) || {cCmd} == {NumCmds})
+			Break If ((!{DontStop} && {Error} ≠ 0) || {cCmd} == {NumCmds})
 		End
-		Find §!1 "{MyActive}"							# go to line after last command
+		Find §!1 "{MyActive}"						# go to line after last command
 	End
 	UnMark DoIt "{MyActive}"
 
@@ -144,23 +155,23 @@ If {CurSel}
 #
 Else
 	Set ToDo "#### Still ToDo… ####"
-	Set FullCommandFile "`Files -i -f "{CommandFile}"`"
+	Set FullCommandFile "`Files -i -fr "{CommandFile}"`"
 	Set WasOpen `Evaluate "∂`Windows∂`" =~ /≈{FullCommandFile}≈/`
-	Open "{CommandFile}"									# Open command file
+	Open "{FullCommandFile}"							# Open command file
 	Exit {Status} If {Status} ≠ 0
-	Find • "{CommandFile}"								# Goto top of File to be executed
+	Find • "{FullCommandFile}"							# Goto top of File to be executed
 	Loop														# Loop through all commands
-		Find /•/ "{CommandFile}"						# Find beginning of next line
+		Find /•/ "{FullCommandFile}"					# Find beginning of next line
 		Break If {Status}	≠ 0							# At end of file
-		Find §:/[¬∂∂]∞/ "{CommandFile}"				# Find from § to end of command
+		Find §:/[¬∂∂]∞/ "{FullCommandFile}"			# Find from § to end of command
 		Break If {Status}	≠ 0							# At end of file
 		If {EchoCmds}
 			Begin
-				Catenate "{CommandFile}".§				# Write command to Standard Output
-				Echo											# Echo a newline after the command
-			End >> "{Worksheet}".§
+			Catenate "{FullCommandFile}".§			# Write command to Standard Output
+			Echo												# Echo a newline after the command
+		End >> "{Worksheet}".§
 		End
-		Execute "{CommandFile}".§						# Execute the command
+		Execute "{FullCommandFile}".§					# Execute the command
 		Set commandStatus {Status}
 		If {commandStatus} ≠ 0
 			Set Error {commandStatus}					# Capture and save status
@@ -169,8 +180,8 @@ Else
 			If {DumpCmds}									# List the commands left to execute
 				Begin
 					Echo "{ToDo}"							# List includes the command that failed
-					Find §:∞ "{CommandFile}"			# Select the unexecuted commands
-					Catenate "{CommandFile}".§			# Write commands to Standard Output
+					Find §:∞ "{FullCommandFile}"		# Select the unexecuted commands
+					Catenate "{FullCommandFile}".§	# Write commands to Standard Output
 					Echo
 				End >> "{Worksheet}".§
 				Mark -y § ToDo "{Worksheet}"			# Mark the commands that weren't executed
@@ -180,7 +191,7 @@ Else
 	End
 
 	If ¬{WasOpen}
-		Close "{CommandFile}" ≥ Dev:Null				# Close the command file
+		Close "{FullCommandFile}" ≥ Dev:Null		# Close the command file
 	End
 End
 Exit "{Error}"												# return with proper status
