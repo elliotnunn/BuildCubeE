@@ -8,6 +8,9 @@ import os.path as path
 import time
 import shutil
 import re
+from datetime import datetime
+from subprocess import run, PIPE
+from machfs import Volume
 
 ########################################################################
 
@@ -32,49 +35,78 @@ def extract_makefile_defines(makefile, seed={}):
     return vardict
 
 ########################################################################
+
+REB = re.compile(rb'Build-date: (\d\d\d\d-\d\d-\d\d)')
+def get_build_date(from_dir):
+    try:
+        msg = run(['git', 'rev-list', '--format=%B', '--max-count=1', 'HEAD'], cwd=from_dir, stdout=PIPE, check=True)
+        msg = msg.stdout
+    except:
+        return
+
+    for l in msg.split(b'\n'):
+        m = REB.match(l)
+        if m:
+            return m.group(1).decode('ascii')
+
+def ticks_from_str(s):
+    delta = datetime.strptime(datstr, '%Y-%m-%d') - datetime(1904, 1, 1)
+    delta = int(delta.total_seconds())
+    return delta
+
+########################################################################
 # Argparse
 
-defaultdir = path.dirname(path.abspath(__file__))
-
 args = argparse.ArgumentParser(description='''
-    Copy this CubeE source tree into another folder, which could then be
-    packed into an HFS volume with MakeHFS
-    (https://pypi.org/project/machfs/) to be compiled with MPW on a real
-    Mac or emulator. Difficult parts of the build tree can be elegantly
-    replaced by dropping pre-built objects or binaries into the
-    AmphibianDNA folder. Every file in AmphibianDNA will be spliced into
-    the build system by rewriting the makefile rule that seems to target
-    it, or by direct copying if no rule is found. All necessary
-    BuildResults folders are also created.
+    Copy an MPW source tree into a System 6 disk image that builds on
+    boot. Difficult parts of the build tree can be elegantly replaced by
+    dropping pre-built objects or binaries into the AmphibianDNA folder.
+    Every file in AmphibianDNA will be spliced into the build system by
+    rewriting the makefile rule that seems to target it, or by direct
+    copying if no rule is found. All necessary BuildResults folders are
+    also created.
 ''')
-args.add_argument('-i', '--src', action='store', default=defaultdir, help='Override source (default: my parent directory)')
-args.add_argument('-o', '--dest', action='store', default=None, help='Override destination (default: MacStoopid/)')
+args.add_argument('src', metavar='SOURCES', action='store', help='Source tree')
+args.add_argument('-e', dest='emu', metavar='VMAC', action='store', default=None, help='path to emulator')
+args.add_argument('-c', dest='cmd', metavar='CMD', action='store', default=None, help='MPW Shell command line')
+args.add_argument('-v', dest='verbose', action='store_true', help='verbose')
 args = args.parse_args()
-if args.dest is None: args.dest = path.join(args.src, 'MacStoopid')
+treedest = path.join(args.src, 'BuildImage')
+imgdest = path.join(args.src, 'BuildImage.dmg')
 
 ########################################################################
 
-print('Copying source tree', flush=True)
+def log(*a, **kwa):
+    if args.verbose:
+        print(*a, **kwa)
+
+########################################################################
+
+log('Copying source tree', flush=True)
 
 try:
-    shutil.rmtree(args.dest)
+    shutil.rmtree(treedest)
 except FileNotFoundError:
     pass
 
-myignore = shutil.ignore_patterns('FillGaps', 'MacStoopid', '.*', '*.dmg', '*.dsk', '*.sh', '*.py')
+myignore = shutil.ignore_patterns('BuildImage*', '.*', '*.dmg', '*.dsk', '*.sh', '*.py')
 
 # copy2 preserves mod times, which we need to eventually allow MPW Make to work right
-shutil.copytree(args.src, args.dest, ignore=myignore, copy_function=shutil.copy2)
+shutil.copytree(args.src, treedest, ignore=myignore, copy_function=shutil.copy2)
 
-all_makefiles = [path.join(root, f) for root, dirs, files in os.walk(args.dest) for f in files if f.lower().endswith('.make')]
+all_makefiles = []
+for root, dirs, files in os.walk(treedest):
+    for f in files:
+        if f.lower().endswith('.make'):
+            all_makefiles.append(path.join(root, f))
 
 ########################################################################
 
-print('Creating build folders', flush=True) # I have better code for this!
+log('Creating build folders', flush=True) # I have better code for this!
 
 main_makefiles = []
 for mkfile in all_makefiles:
-    with open(path.join(args.dest, mkfile), 'rb') as f:
+    with open(mkfile, 'rb') as f:
         text = f.read()
 
     defines = extract_makefile_defines(text)
@@ -84,16 +116,16 @@ for mkfile in all_makefiles:
     for key, macpath in defines.items():
         macpath = macpath.replace('"', '')
         if key.endswith('Dir') and macpath.startswith('BuildResults:'):
-            nativepath = path.join(args.dest, *macpath.split(':')[:-1])
+            nativepath = path.join(treedest, *macpath.split(':')[:-1])
             os.makedirs(nativepath, exist_ok=True)
 
 ########################################################################
 
-print('Splicing amphibian DNA', flush=True) # Ugly, but keeps src tree clean
+log('Splicing amphibian DNA', flush=True) # Ugly, but keeps src tree clean
 
 OVERDIR = 'AmphibianDNA'
 try:
-    overs = [n for n in os.listdir(path.join(args.dest, OVERDIR)) if path.splitext(n)[1].lower() not in ('.idump', '.rdump')]
+    overs = [n for n in os.listdir(path.join(treedest, OVERDIR)) if path.splitext(n)[1].lower() not in ('.idump', '.rdump')]
 except FileNotFoundError:
     overs = []
 
@@ -169,8 +201,58 @@ if remaining: # try to find where these override files with *no build rule* shou
 
 diag = 'Successfully spliced: %d/%d' % (len(overs)-len(remaining), len(overs))
 if remaining: diag += '; Failed: ' + ' '.join(remaining)
-print(diag)
+log(diag)
 
 ########################################################################
 
-print('Suggestion: MakeHFS -s 256M -n MacStoopid -i MacStoopid/ MacStoopid.dmg')
+log('Copying System Folder', flush=True)
+
+sysfold = path.join(path.dirname(path.abspath(__file__)), 'BootableMPW')
+sysfold2 = path.join(treedest, 'BootableMPW')
+shutil.copytree(sysfold, sysfold2)
+
+with open(path.join(treedest, 'BootableMPW', 'UserStartup'), 'a') as f:
+    print('SetDirectory Src:', file=f)
+
+    print('Set Exit 0', file=f)
+
+    datstr = get_build_date(args.src)
+    if datstr:
+        log('Setting build date: %s' % datstr, flush=True)
+        ticks = ticks_from_str(datstr)
+        print('SetTicks %d # %s' % (ticks, datstr), file=f)
+
+    if args.cmd:
+        print(args.cmd, file=f)
+        print('Quit', file=f)
+
+########################################################################
+
+log('Generating disk image', flush=True)
+
+vol = Volume()
+vol.name = 'Src'
+vol.read_folder(treedest, date=0x90000000, mpw_dates=True)
+image = vol.write(256*1024*1024, startapp=('BootableMPW', 'MPW Shell'), align=4096)
+with open(imgdest, 'wb') as f:
+    f.write(image)
+
+########################################################################
+
+if not args.emu: exit()
+log('Starting emulator...', flush=True)
+
+run([args.emu, imgdest], check=True)
+
+########################################################################
+
+log('Slurping output', flush=True)
+
+vol = Volume()
+with open(imgdest, 'rb') as f:
+    vol.read(f.read())
+bootdir = vol.pop('BootableMPW')
+vol.write_folder(treedest)
+
+wsheet = bootdir['Worksheet'].data.decode('mac_roman').replace('\r', '\n')
+print(wsheet, end='')
