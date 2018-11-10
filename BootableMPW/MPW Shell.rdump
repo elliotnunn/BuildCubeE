@@ -15543,7 +15543,7 @@ data 'CODE' (6, "Commands", purgeable, preload) {
 	$"DD2E 6022 4AAE FFF8 6708 3B7C 0001 DD2E"            /* ..`"J...g.;|.... */
 	$"6014 4AAE FFFC 6708 3B7C 0002 DD2E 6006"            /* `.J...g.;|....`. */
 	$"3B7C FFFF DD2E 3B7C 0001 DD30 3B7C 0001"            /* ;|....;|...0;|.. */
-	$"DD2C 7000 4E5E 3F3C 0001 A895 7400 0000" // ShutDwnPower() appended to quit()
+	$"DD2C 7000 4E5E 4E75 8471 7569 7400 0000"            /* .,p.N^Nu.quit... */
 	$"4E56 0000 48E7 0318 47ED D556 286E 000C"            /* NV..H...G..V(n.. */
 	$"2E2E 0008 7C01 6036 486D CFE2 584C 2F14"            /* ....|.`6Hm..XL/. */
 	$"4EAD 0D0A 4A00 504F 6704 7C00 6020 2F14"            /* N...J.POg.|.` /. */
