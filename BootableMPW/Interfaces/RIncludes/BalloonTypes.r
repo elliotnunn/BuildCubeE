@@ -1,41 +1,14 @@
 /*
 	File:		BalloonTypes.r
 
-	Contains:	Resource declarations for Balloon Help Resource types
+	Copyright:	© 1983-1993 by Apple Computer, Inc.
+				All rights reserved.
 
-	Copyright:	© 1989-1992 by Apple Computer, Inc., all rights reserved.
+	Version:	System 7.1 for ETO #11
+	Created:	Tuesday, March 30, 1993 18:00
 
-    This file is used in these builds: BigBang
-
-	Change History (most recent first):
-
-		<5+>	 6/23/92	DCL		Changed #ifndef __BALLOONTYPES.R__ to __BALLOONTYPES_R__
-		 <5>	  8/8/91	JL		Updated Copyright. Put conditional wrapper around entire file.
-		 <4>	 1/30/91	RLC		<stb> Changed the use of hmpic to hmpict as that is the 'new'
-									convention.
-		 <3>	 8/31/90	RLC		Update #defines again.
-		<1+>	 8/17/90	RLC		Add some well known constants to the file.
-		 <1>	 7/24/90	RLC		Moved from {Toolbox}HelpMgr to {RIncludes}.
-		<6+>	 6/22/90	RLC		Add 'hfdr' resource for getting application info balloons in
-									finder windows.
-		<5+>	  4/5/90	RLC		Add 'hovr' type to allow the override of some system help msgs.
-		<4+>	  2/8/90	RLC		Update types.
-		 <3>	 1/11/90	RLC		Fix HMSkipItem case in hrct type.
-		<1+>	  1/4/90	RLC		Change to the new resource format
-	   <1.7>	11/30/89	RLC		Add some new options to hmnu & hdlg types.
-	   <1.6>	11/16/89	RLC		Update 'hrct' resource type declaration by removing hotRect
-									parameter.
-	   <1.5>	11/15/89	RLC		Update to handle the correct help message types (soon to
-									change).
-	   <1.4>	11/13/89	RLC		Updated 'hdlg' resource structure to include tip & altRect
-									parameters.
-	   <1.3>	 11/9/89	RLC		Add HMUserItemID define.
-	   <1.2>	 10/1/89	RLC		Updated HMBalloonRect for HelpMsg types: StyledTE & STR.
-	   <1.1>	 9/13/89	RLC		Removed 'HMReuse' item from types.
-	   <1.0>	 9/12/89	RLC		Created Today.
-
-	To Do:
 */
+
 
 #ifndef __BALLOONTYPES_R__
 #define __BALLOONTYPES_R__

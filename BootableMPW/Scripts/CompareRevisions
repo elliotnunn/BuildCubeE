@@ -24,7 +24,7 @@
 #	NOTE:
 #	1. CompareRevisions calls the script CompareFiles.
 #
-#	© Apple Computer, Inc. 1988 - 1990
+#	© Apple Computer, Inc. 1988 - 1992
 #	All rights reserved.
 
 Set Exit 0
@@ -36,7 +36,7 @@ Begin
 	If {#} ≠ 1
 		Echo "### Usage - {0} file"
 		Exit 0
-	End	> Dev:StdErr
+	End	>> Dev:StdErr
 	
 	#	Make sure the file exists
 
@@ -112,8 +112,8 @@ Begin
 
 	#	Request the number of the revision to be compared.
 
-	(Set rev2 "`GetListItem -r 8 -m "Compare ∂"{f},{rev1}{®1}∂" with:" -d {revList} ∂
-		|| Set error {Status}`")
+	(Set rev2 `GetListItem -s -r 8 -m "Compare ∂"{f},{rev1}{®1}∂" with:" -d {revList} ∂
+		|| Set error {Status}`)
 
 	If {error} == 0
 		
@@ -124,7 +124,7 @@ Begin
 	#	revision we want to compare against.  We'll have to change the name back.
 		
 	#	Find a temporary directory where I can checkout the file
-		Set coDir "{MPW}CompareRevisions.Dir:"
+		Set coDir "{ShellDirectory}CompareRevisions.Dir:"
 		Delete -i -y "{coDir}"
 		NewFolder "{coDir}"
 				

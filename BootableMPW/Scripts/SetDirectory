@@ -10,6 +10,7 @@
 #	Copyright Apple Computer, Inc. 1987 - 1990
 #	All rights reserved.
 
+Set Echo 0
 Set Exit 0
 If {#} != 1  OR  "{1}" == ""
 	Echo "### {0} - A directory must be specified." > Dev:StdErr
@@ -24,8 +25,8 @@ Else
 
 	if !`Evaluate "{directory}" =~ /?«0,64»/`  # longer that 64 bytes?
 		Unset ®1 ; Unset ®2
-		(Evaluate "{directory}" =~ /([¬':']*)®1≈':'([¬':']+)®2':'/ ) ∑ dev:null
-		Set menuname	"{®1}"':…:'"{®2}"
+		(Evaluate "{directory}" =~ /(?«30»)®1≈(?«33»)®2/ ) ∑ dev:null
+		Set menuname	"{®1}"'…'"{®2}"
 	else
 		Set menuname "{directory}"
 	end

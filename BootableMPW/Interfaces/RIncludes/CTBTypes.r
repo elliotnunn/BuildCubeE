@@ -1,30 +1,14 @@
-/************************************************************
-	CTBTypes.r
-	Resource types for the Communications Toolbox
+/*
+	File:		CTBTypes.r
 
-	Written by:	Byron Han
+	Copyright:	© 1983-1993 by Apple Computer, Inc.
+				All rights reserved.
 
-		Copyright Apple Computer, Inc. 1988-1992
-		All rights reserved
+	Version:	System 7.1 for ETO #11
+	Created:	Tuesday, March 30, 1993 18:00
 
-	Change History (most recent first):
+*/
 
-	   <11+>	 6/23/92	DCL		Changed #ifndef __CTBTYPES.R__ to __CTBTYPES_R__
-		<11>	 8/28/91	CH		Updated interface headers for consistency.
-		<10>	 8/20/91	BH		added XTI definition for caps
-		 <9>	  7/3/91	BH		added faps and taps resources
-		 <8>	 6/26/91	BH		fixed typo. sorry
-		 <7>	 6/26/91	BH		oops - i messed up the cbnd definition.  now fixed. sorry
-		 <6>	 6/26/91	BH		move caps here and include new extensions to caps
-		 <5>	 1/10/91	kaz		<jng> Moving 'caps' resource definition to Internal.
-		 <4>	  7/2/90	kaz		Fixed 'flst' definition to even out the structure for odd-length
-									font names.
-		 <3>	 5/22/90	kaz		Updated 'flst' to include a textMode
-		 <2>	 3/16/90	BBH		add flst resource type
-		 <1>	 3/14/90	BBH		first checked in to BBS
-
-	To Do:
-************************************************************/
 
 #ifndef __CTBTYPES_R__
 #define __CTBTYPES_R__

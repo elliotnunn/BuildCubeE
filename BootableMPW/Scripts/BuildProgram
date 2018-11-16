@@ -13,7 +13,7 @@
 #	generation of the build commands.
 #
 #
-#	Copyright Apple Computer, Inc. 1987 - 1990
+#	Copyright Apple Computer, Inc. 1987 - 1992
 #	All rights reserved.
 
 Set Exit 1
@@ -55,10 +55,15 @@ Echo "# `Date -t` ----- Executing build commands."
 Delete "{program}".makeout
 Echo "# `Date -t` ----- Done."
 Set type "`files -i -n -x t "{program}" ≥ Dev:Null || Set Status 0`"
+Set CaseSensitive True #filetype check for DA must be case sensitive
 If "{type}" =~ /≈ APPL/ OR "{type}" =~ /≈ MPST/ 	# application or tool
 	Echo -n ∂t; Quote -n "{program}"; Echo -n " "
-Else If "{type}" =~ /≈ DFIL/						# desk accessory
+Else If "{type}" =~ /≈ DFIL/						# desk accessory in Suitcase
 	Echo -n ∂t
 	Quote -n "Font/DA Mover" "{SystemFolder}"System "{program}";
 	Echo -n "  # Install DA"
+Else If "{type}" =~ /≈ dfil/						# desk accessory (System 7)
+	Echo -n ∂t
+	Quote -n Duplicate -y "{program}" "{SystemFolder}Apple Menu Items";
+	Echo -n "  # Install DA into Apple Menu"
 End

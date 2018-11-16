@@ -1,34 +1,14 @@
 /*
 	File:		Pict.r
 
-	Contains:	Rez template for PICT resources.
+	Copyright:	© 1983-1993 by Apple Computer, Inc.
+				All rights reserved.
 
-	Written by:	Dean & Mitch. (We didn’t really write this, but we got to change this line, so
-				we put our names here.)
+	Version:	System 7.1 for ETO #11
+	Created:	Tuesday, March 30, 1993 18:00
 
-	Copyright:	© 1986-1992 by Apple Computer, Inc., all rights reserved.
-
-	Change History (most recent first):
-
-		<4+>	 6/23/92	DCL		Changed #ifndef __PICT.R__ to __PICT_R__
-		 <4>	 2/20/92	DTY		Don breaks his first build. Change the semi-colons after all the
-									notPatBics back to commas.
-		 <3>	 2/20/92	DCL		Fixing transfer modes. notPatXor had been left out. Radar
-									#1016119
-		 <2>	  3/6/91	DTY		mda: Defined structures for FontName, LineJustify,
-									DirectBitsRect, & DirectBitsRgn.  Fixed the opcode for DHDVText.
-									Added oldPICTCompatible define to keep build working while
-									allowing transition to new template which defines the
-									ExtendedVersion2HeaderOp.  Additional aesthetic mungings by
-									Darin.
-		 <1>	  3/5/90	BBH		first checked in
-				 3/20/89	THT		added #ifndef __PICT.R__
-				12/03/87	THT		created
-
-	To Do:
-		Change the #define for oldPICTCompatible to false and make everyone update their PICT 2 so they don’t
-		break with the new template.
 */
+
 
 #ifndef __PICT_R__
 #define __PICT_R__

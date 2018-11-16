@@ -253,7 +253,7 @@ vol = Volume()
 with open(imgdest, 'rb') as f:
     vol.read(f.read())
 bootdir = vol.pop('BootableMPW')
-vol.write_folder(treedest)
+vol.write_folder(args.src)
 
 wsheet = bootdir['Worksheet'].data.decode('mac_roman').replace('\r', '\n')
 print(wsheet, end='')
