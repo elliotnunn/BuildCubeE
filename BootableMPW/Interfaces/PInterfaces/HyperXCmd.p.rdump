@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0006 6100 0006 7D08 5669 6577 506F 7274"            /* ..a...}.ViewPort */
 	$"0000 067E 0000 06C2 064C 6F6F 6B41 7400"            /* ...~.....LookAt. */
 	$"0B48 7970 6572 5843 6D64 2E70 0200 0000"            /* .HyperXCmd.p.... */

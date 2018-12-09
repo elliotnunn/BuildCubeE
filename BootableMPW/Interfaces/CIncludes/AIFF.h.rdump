@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"000B 006D 7955 7365 724E 616D 6500 0106"            /* ...myUserName... */
 	$"0005 0074 7275 6500 011C 0010 0034 2F34"            /* ...true......4/4 */
 	$"0641 4946 462E 68DA 0200 0000 5445 5854"            /* .AIFF.h.....TEXT */

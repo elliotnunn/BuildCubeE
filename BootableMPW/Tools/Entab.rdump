@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6174 6849 6E64 6578 203C 2049 4F50 6174"            /* athIndex < IOPat */
 	$"6843 6E74 2044 4F0D 0909 0909 0909 0909"            /* hCnt DO......... */
 	$"0545 6E74 6162 0200 0000 4D50 5354 4D50"            /* .Entab....MPSTMP */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"696C 6C65 7231 3B0D 206C 6F6E 6720 696F"            /* iller1;. long io */
 	$"4643 4246 6C4E 6D3B 0D20 7368 6F72 7420"            /* FCBFlNm;. short  */
 	$"0549 4C69 6E6B 0200 0000 4D50 5354 4D50"            /* .ILink....MPSTMP */

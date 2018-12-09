@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2020 2020 2020 2020 2020 2020 2020 2020"            /*                  */
 	$"2020 2020 2020 2020 2020 2020 2020 2020"            /*                  */
 	$"0C49 6D61 6765 436F 6465 632E 7253 0200"            /* .ImageCodec.rS.. */

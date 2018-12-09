@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"7072 6F64 7563 7420 4D50 570D 0965 6E64"            /* product MPW..end */
 	$"0D09 666F 7220 6A20 696E 2060 6669 6C65"            /* ..for j in `file */
 	$"044C 696E 6580 0200 0000 5445 5854 4D50"            /* .Line.....TEXTMP */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2B37 4403 EFFF FF00 0000 4C00 2B36 0403"            /* +7D.......L.+6.. */
 	$"F0FF FF00 0004 8000 2B36 1C00 01FF FF00"            /* ........+6...... */
 	$"0653 414E 452E 70DA 0200 0000 5445 5854"            /* .SANE.p.....TEXT */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"4D50 5772 4572 7220 3D20 7061 7261 6D45"            /* MPWrErr = paramE */
 	$"7272 3B20 2020 2020 2020 2020 2020 2020"            /* rr;              */
 	$"084D 6F76 6965 732E 7000 0200 0000 5445"            /* .Movies.p.....TE */

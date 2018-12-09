@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6520 436F 6D70 7574 6572 2C20 496E 632E"            /* e Computer, Inc. */
 	$"2031 3938 352D 3139 3930 2E00 0001 0000"            /*  1985-1990...... */
 	$"0B56 6964 656F 496E 7466 2E70 0200 0000"            /* .VideoIntf.p.... */

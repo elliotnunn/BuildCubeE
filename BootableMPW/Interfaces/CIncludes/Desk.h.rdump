@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6E00 2B36 1000 01FF FF00 0000 8C00 2B36"            /* n.+6..........+6 */
 	$"1420 2020 2020 2020 2020 2020 2020 2020"            /* .                */
 	$"0644 6573 6B2E 68DA 0200 0000 5445 5854"            /* .Desk.h.....TEXT */

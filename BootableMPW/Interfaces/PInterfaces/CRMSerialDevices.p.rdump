@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"5866 747D 7F7A 7167 6060 676F 777B 7A74"            /* Xft}.zqg``gow{zt */
 	$"6B64 6266 6D75 7B7C 7973 6E6D 7075 7C81"            /* kdbfmu{|ysnmpu|. */
 	$"1243 524D 5365 7269 616C 4465 7669 6365"            /* .CRMSerialDevice */

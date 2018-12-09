@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2031 3938 352D 3139 3931 2E00 0001 0000"            /*  1985-1991...... */
 	$"0006 1B00 0005 1B00 0000 8700 2B36 8008"            /* ............+6.. */
 	$"0653 414E 452E 68DA 0200 0000 5445 5854"            /* .SANE.h.....TEXT */

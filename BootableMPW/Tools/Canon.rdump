@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 1D56 0012 0000 0000 0000 0006 0000"            /* ...V............ */
 	$"0000 0000 0000 0000 FFFE 0001 0000 7FBF"            /* ................ */
 	$"0543 616E 6F6E 0200 0000 4D50 5354 4D50"            /* .Canon....MPSTMP */

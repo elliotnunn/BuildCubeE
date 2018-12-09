@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2009 0909 093B 2061 6464 2074 6869 7320"            /*  ....; add this  */
 	$"746F 2067 6574 2077 696E 646F 7720 666F"            /* to get window fo */
 	$"0B49 6E74 6572 6661 6365 2E6F 0200 0000"            /* .Interface.o.... */

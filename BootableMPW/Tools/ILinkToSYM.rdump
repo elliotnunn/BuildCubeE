@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"5264 4572 7220 3D20 2D38 352C 2020 2020"            /* RdErr = -85,     */
 	$"2020 2020 2020 2020 2020 2020 2020 2020"            /*                  */
 	$"0A49 4C69 6E6B 546F 5359 4D00 0200 0000"            /* .ILinkToSYM..... */

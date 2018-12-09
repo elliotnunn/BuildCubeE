@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 0000 0000 0000 0000 0000 0000 0000"            /* ................ */
 	$"0000 0000 0000 0000 0000 0000 0000 0000"            /* ................ */
 	$"0C54 7261 6E73 6665 7243 4B49 4475 0200"            /* .TransferCKIDu.. */

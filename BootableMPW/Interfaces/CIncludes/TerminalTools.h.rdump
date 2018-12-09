@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"4EAD 0932 3C00 4FEF 000C 4A46 6618 7078"            /* N..2<.O...JFf.px */
 	$"B06E FDFA 6610 7003 B06E FCFE 670E 7004"            /* .n..f.p..n..g.p. */
 	$"0F54 6572 6D69 6E61 6C54 6F6F 6C73 2E68"            /* .TerminalTools.h */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0363 043D 0050 0020 0363 043D 0000 0935"            /* .c.=.P. .c.=...5 */
 	$"0000 0000 0000 0000 0000 0000 0033 0320"            /* .............3.  */
 	$"0A4D 656D 5479 7065 732E 7000 0200 0000"            /* .MemTypes.p..... */

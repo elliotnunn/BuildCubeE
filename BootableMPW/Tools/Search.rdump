@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6F74 2052 6573 6F75 7263 6520 5461 626C"            /* ot Resource Tabl */
 	$"6520 636F 756C 6420 6E6F 7420 6265 2069"            /* e could not be i */
 	$"0653 6561 7263 68DA 0200 0000 4D50 5354"            /* .Search.....MPST */

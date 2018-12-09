@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"022F B916 536E 6453 6F75 6E64 4D61 6E61"            /* ./..SndSoundMana */
 	$"6765 7256 6572 7369 6F6E 0000 37F9 0002"            /* gerVersion..7... */
 	$"0E53 7461 6E64 6172 6446 696C 652E 6853"            /* .StandardFile.hS */

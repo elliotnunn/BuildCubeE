@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6E67 4F72 6465 7200 0023 1700 0023 D10B"            /* ngOrder..#...#.. */
 	$"4955 5465 7874 4F72 6465 7200 0023 D200"            /* IUTextOrder..#.. */
 	$"0A50 6163 6B49 6E74 662E 7000 0200 0000"            /* .PackIntf.p..... */

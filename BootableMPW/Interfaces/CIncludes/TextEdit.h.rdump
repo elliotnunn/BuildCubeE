@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 F300 0000 0C60 0001 2380 0000 1C60"            /* .......`..#....` */
 	$"0000 0000 0000 0000 0000 0000 0000 0000"            /* ................ */
 	$"0A54 6578 7445 6469 742E 6800 0200 0000"            /* .TextEdit.h..... */

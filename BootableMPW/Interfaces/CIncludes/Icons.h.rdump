@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 000A 0000 6000 0000 4800 0000 0000"            /* ......`...H..... */
 	$"0000 0000 0000 0001 0000 0A12 0000 0001"            /* ................ */
 	$"0749 636F 6E73 2E68 0200 0000 5445 5854"            /* .Icons.h....TEXT */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6E64 6966 0D0D 0D2F 2A0D 202A 0954 6865"            /* ndif.../*. *.The */
 	$"2062 6173 6963 2064 6174 6120 7374 7275"            /*  basic data stru */
 	$"0765 7272 6E6F 2E68 0200 0000 5445 5854"            /* .errno.h....TEXT */

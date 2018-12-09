@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"796C 650D 7265 6472 6177 0D68 5445 0D53"            /* yle.redraw.hTE.S */
 	$"7453 6372 7048 616E 646C 650D 6854 450D"            /* tScrpHandle.hTE. */
 	$"0A43 616E 6F6E 2E44 6963 7400 0200 0000"            /* .Canon.Dict..... */

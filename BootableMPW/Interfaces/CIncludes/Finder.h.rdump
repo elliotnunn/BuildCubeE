@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0005 0074 7275 6500 005A 0005 0074 7275"            /* ...true..Z...tru */
 	$"6500 0063 0007 0033 3631 3431 3400 0067"            /* e..c...361414..g */
 	$"0846 696E 6465 722E 6800 0200 0000 5445"            /* .Finder.h.....TE */

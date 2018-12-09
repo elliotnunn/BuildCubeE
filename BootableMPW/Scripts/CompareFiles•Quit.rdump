@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"F8C6 4EBA 16C0 206C 000C 2F10 486D F9C6"            /* ..N... l../.Hm.. */
 	$"4EBA 16B2 486D F8C6 487A 0182 486D F9C6"            /* N...Hm..Hz..Hm.. */
 	$"1143 6F6D 7061 7265 4669 6C65 73A5 5175"            /* .CompareFiles.Qu */

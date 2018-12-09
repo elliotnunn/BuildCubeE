@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0081 003B 0070 6173 6361 6C20 426F 6F6C"            /* ...;.pascal Bool */
 	$"6561 6E20 5377 6170 496E 7374 7275 6374"            /* ean SwapInstruct */
 	$"0A50 616C 6574 7465 732E 7000 0200 0000"            /* .Palettes.p..... */

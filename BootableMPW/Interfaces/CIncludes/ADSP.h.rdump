@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"4720 750D 7374 6174 7573 5061 7261 6D73"            /* G u.statusParams */
 	$"2044 5320 5452 7374 6174 7573 5061 7261"            /*  DS TRstatusPara */
 	$"0641 4453 502E 68DA 0200 0000 5445 5854"            /* .ADSP.h.....TEXT */

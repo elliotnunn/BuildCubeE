@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"4C61 6E67 203D 202D 332C 0909 092F 2A20"            /* Lang = -3,.../*  */
 	$"6465 6661 756C 7420 2874 6162 6C65 2920"            /* default (table)  */
 	$"0544 6552 657A 0200 0000 4D50 5354 4D50"            /* .DeRez....MPSTMP */

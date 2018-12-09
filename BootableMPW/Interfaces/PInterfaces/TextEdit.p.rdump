@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 107C 0853 7973 4572 722E 6100 0200"            /* ...|.SysErr.a... */
 	$"0000 5445 5854 4D50 5320 0100 0240 0100"            /* ..TEXTMPS ...@.. */
 	$"0A54 6578 7445 6469 742E 7000 0200 0000"            /* .TextEdit.p..... */

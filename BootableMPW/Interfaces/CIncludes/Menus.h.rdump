@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"82D7 05DF 82E2 0612 82E3 062B 82E4 063D"            /* ...........+...= */
 	$"82E5 0672 82E6 0685 82E7 06CF 82E8 06FD"            /* ...r............ */
 	$"074D 656E 7573 2E68 0200 0000 5445 5854"            /* .Menus.h....TEXT */

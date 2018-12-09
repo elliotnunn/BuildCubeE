@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6F20 6C65 6164 696E 6720 7A65 726F 222C"            /* o leading zero", */
 	$"2073 6F20 7468 6520 6C65 6E67 7468 0D6F"            /*  so the length.o */
 	$"0A50 616C 6574 7465 732E 6800 0200 0000"            /* .Palettes.h..... */

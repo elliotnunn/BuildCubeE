@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 0048 000A 436F 7572 6965 7200 203E"            /* ...H..Courier. > */
 	$"2043 2E70 6970 652E 636D 6E64 0D43 6672"            /*  C.pipe.cmnd.Cfr */
 	$"0C43 6F6D 706F 6E65 6E74 732E 68E4 0200"            /* .Components.h... */

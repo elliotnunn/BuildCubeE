@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"682E 680D 4D65 6D6F 7279 2E68 0D4D 656E"            /* h.h.Memory.h.Men */
 	$"7573 2E68 0D4D 4944 492E 680D 4E6F 7469"            /* us.h.MIDI.h.Noti */
 	$"0941 6C69 6173 6573 2E68 0200 0000 5445"            /* .Aliases.h....TE */

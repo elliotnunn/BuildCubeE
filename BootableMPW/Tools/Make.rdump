@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"424F 4F4C 4541 4E29 3A20 4F53 4572 723B"            /* BOOLEAN): OSErr; */
 	$"0D46 554E 4354 494F 4E20 5042 5374 6174"            /* .FUNCTION PBStat */
 	$"044D 616B 6580 0200 0000 4D50 5354 4D50"            /* .Make.....MPSTMP */

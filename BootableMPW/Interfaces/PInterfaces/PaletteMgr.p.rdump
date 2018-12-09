@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6E00 2B36 1C00 01FF FF00 0000 8C00 2B36"            /* n.+6..........+6 */
 	$"EC20 2020 2020 2020 2020 2020 2020 2020"            /* .                */
 	$"0C50 616C 6574 7465 4D67 722E 7071 0200"            /* .PaletteMgr.pq.. */

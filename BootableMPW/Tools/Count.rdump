@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0001 04A2 00BB 9454 0003 9459 0003 945F"            /* .......T...Y..._ */
 	$"0001 07FF 0001 04ED 004A 3024 0001 0000"            /* .........J0$.... */
 	$"0543 6F75 6E74 0200 0000 4D50 5354 4D50"            /* .Count....MPSTMP */

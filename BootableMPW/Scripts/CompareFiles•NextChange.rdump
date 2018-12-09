@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2053 6574 4350 6978 656C 2873 686F 7274"            /*  SetCPixel(short */
 	$"2068 2C73 686F 7274 2076 2C63 6F6E 7374"            /*  h,short v,const */
 	$"1743 6F6D 7061 7265 4669 6C65 73A5 4E65"            /* .CompareFiles.Ne */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"456E 7472 6965 733A 2049 4E54 4547 4552"            /* Entries: INTEGER */
 	$"3B6D 656E 7543 456E 7472 6965 733A 204D"            /* ;menuCEntries: M */
 	$"074D 656E 7573 2E70 0200 0000 5445 5854"            /* .Menus.p....TEXT */

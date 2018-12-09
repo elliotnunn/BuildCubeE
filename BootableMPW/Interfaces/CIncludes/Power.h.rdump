@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"756E 4361 6C6C 2874 6865 4669 6C65 2926"            /* unCall(theFile)& */
 	$"7265 7475 726E 2074 6F20 6669 6C65 2066"            /* return to file f */
 	$"0750 6F77 6572 2E68 0200 0000 5445 5854"            /* .Power.h....TEXT */

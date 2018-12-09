@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6374 696F 6E09 0909 2D31 3030 3132 0D23"            /* ction...-10012.# */
 	$"2064 6566 696E 6520 6572 7241 454E 6F74"            /*  define errAENot */
 	$"0C41 4552 6567 6973 7472 792E 68E4 0200"            /* .AERegistry.h... */

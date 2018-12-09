@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0954 6865 206E 756D 6265 7273 2061 7265"            /* .The numbers are */
 	$"206C 6973 7465 6420 696E 2049 6E73 6964"            /*  listed in Insid */
 	$"084C 696D 6974 732E 6800 0200 0000 5445"            /* .Limits.h.....TE */

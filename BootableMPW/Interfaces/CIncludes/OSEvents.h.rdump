@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"00DD 0000 0000 0000 0000 0000 0000 0033"            /* ...............3 */
 	$"0320 6000 0000 0433 2E30 3127 332E 3031"            /* . `....3.01'3.01 */
 	$"0A4F 5345 7665 6E74 732E 6800 0200 0000"            /* .OSEvents.h..... */

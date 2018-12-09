@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6573 0D20 2A09 6F6E 6520 6F66 205F 494F"            /* es. *.one of _IO */
 	$"4642 462C 205F 494F 4C42 462C 206F 7220"            /* FBF, _IOLBF, or  */
 	$"0746 436E 746C 2E68 0200 0000 5445 5854"            /* .FCntl.h....TEXT */

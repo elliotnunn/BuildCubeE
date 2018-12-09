@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6974 656D 0000 159D 0000 15BE 0A6D 656E"            /* item.........men */
 	$"7573 656C 6563 7400 0015 BF00 0015 FA07"            /* uselect......... */
 	$"064D 4944 492E 68DA 0200 0000 5445 5854"            /* .MIDI.h.....TEXT */

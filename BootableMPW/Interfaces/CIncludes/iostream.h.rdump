@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"FC0C 0CCF FFF0 FF00 0FFF 00FF 0000 0000"            /* ................ */
 	$"0000 0000 0000 0000 0B09 0000 0A08 0000"            /* ................ */
 	$"0A69 6F73 7472 6561 6D2E 6800 0200 0000"            /* .iostream.h..... */

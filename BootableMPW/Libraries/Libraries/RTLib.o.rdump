@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0003 F0FF FF00 0000 8000 0000 0000 02FF"            /* ................ */
 	$"FF20 0000 A200 1429 7401 2B85 0750 6173"            /* . .....)t.+..Pas */
 	$"0752 544C 6962 2E6F 0200 0000 4F42 4A20"            /* .RTLib.o....OBJ  */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"3FE5 3230 0004 0000 0000 0000 0000 A74B"            /* ?.20...........K */
 	$"A521 A74B A521 A395 5543 0000 A99E 0004"            /* .!.K.!..UC...... */
 	$"0C70 6970 6573 7472 6561 6D2E 68E4 0200"            /* .pipestream.h... */

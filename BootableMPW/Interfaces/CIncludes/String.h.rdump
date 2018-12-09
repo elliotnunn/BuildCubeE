@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"696E 6520 2028 6F76 6572 2072 6964 6520"            /* ine  (over ride  */
 	$"7468 6520 6465 6661 756C 7473 290D 230D"            /* the defaults).#. */
 	$"0853 7472 696E 672E 6800 0200 0000 5445"            /* .String.h.....TE */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6C20 2B20 313B 0D09 0909 2A65 7175 616C"            /* l + 1;....*equal */
 	$"203D 2027 5C30 273B 0D09 097D 0D09 090D"            /*  = '\0';...}.... */
 	$"0743 4D61 726B 6572 0200 0000 4D50 5354"            /* .CMarker....MPST */

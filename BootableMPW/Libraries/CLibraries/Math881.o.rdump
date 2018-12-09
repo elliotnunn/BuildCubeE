@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6E6F 7420 6265 2075 7365 642C 2062 6563"            /* not be used, bec */
 	$"6175 7365 205E 312E 0000 057F 001C 2643"            /* ause ^1.......&C */
 	$"094D 6174 6838 3831 2E6F 0200 0000 4F42"            /* .Math881.o....OB */

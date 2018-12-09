@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2422 4534 3038 2035 3336 3520 3643 3439"            /* $"E408 5365 6C49 */
 	$"2035 3436 3520 3738 3734 2030 3030 3020"            /*  5465 7874 0000  */
 	$"0E44 6973 4173 6D4C 6F6F 6B75 702E 7044"            /* .DisAsmLookup.pD */

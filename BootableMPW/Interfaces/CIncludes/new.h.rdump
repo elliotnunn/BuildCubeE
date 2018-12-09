@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"656C 6563 7469 6F6E 0000 0001 0000 0002"            /* election........ */
 	$"1900 0001 1900 0000 5C00 8534 A01F F400"            /* ........\..4.... */
 	$"056E 6577 2E68 0200 0000 5445 5854 4D50"            /* .new.h....TEXTMP */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6F6E 7374 2063 6861 7220 2A73 312C 2063"            /* onst char *s1, c */
 	$"6F6E 7374 2063 6861 7220 2A73 322C 2073"            /* onst char *s2, s */
 	$"0652 657A 4465 74DA 0200 0000 4D50 5354"            /* .RezDet.....MPST */

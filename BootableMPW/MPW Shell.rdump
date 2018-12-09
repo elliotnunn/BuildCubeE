@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0508 017E 0171 0910 0008 017F 00B4 0910"            /* ...~.q.......... */
 	$"0008 0172 0068 0910 000C 017B 00C2 003A"            /* ...r.h.....{...: */
 	$"094D 5057 2053 6865 6C6C 0200 0000 4150"            /* .MPW Shell....AP */

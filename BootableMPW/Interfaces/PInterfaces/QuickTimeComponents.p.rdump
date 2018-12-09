@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"9C0D 4E6F 5075 7267 6550 6978 656C 7300"            /* ..NoPurgePixels. */
 	$"000A 9D00 000A F80F 4765 7450 6978 656C"            /* ........GetPixel */
 	$"1551 7569 636B 5469 6D65 436F 6D70 6F6E"            /* .QuickTimeCompon */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6E00 2B37 4400 01FF FF00 0000 8C00 2B36"            /* n.+7D.........+6 */
 	$"EC20 2020 2020 2020 2020 2020 2020 2020"            /* .                */
 	$"074C 6973 7473 2E70 0200 0000 5445 5854"            /* .Lists.p....TEXT */

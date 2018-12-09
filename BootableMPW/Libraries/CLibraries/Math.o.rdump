@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2069 7320 6120 7374 6174 696F 6E65 7279"            /*  is a stationery */
 	$"2070 6164 2E20 2049 6620 796F 7520 6D61"            /*  pad.  If you ma */
 	$"064D 6174 682E 6FDA 0200 0000 4F42 4A20"            /* .Math.o.....OBJ  */

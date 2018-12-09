@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0546 7261 6374 0000 03FD 0000 040F 0946"            /* .Fract.........F */
 	$"7261 6374 5074 7200 0000 0411 0000 0422"            /* ractPtr........" */
 	$"0B55 6E6D 616E 676C 6572 2E70 0200 0000"            /* .Unmangler.p.... */

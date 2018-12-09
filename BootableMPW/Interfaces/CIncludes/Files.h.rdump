@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2020 3C2D 2D20 2020 2033 3620 2020 2069"            /*   <--    36    i */
 	$"6F41 434F 776E 6572 4944 2020 206C 6F6E"            /* oACOwnerID   lon */
 	$"0746 696C 6573 2E68 0200 0000 5445 5854"            /* .Files.h....TEXT */

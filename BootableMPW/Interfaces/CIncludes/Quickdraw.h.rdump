@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6B20 3A3A 4173 6D53 7461 636B 733A 5472"            /* k ::AsmStacks:Tr */
 	$"6170 7300 496E 7365 7452 676E 0000 0000"            /* aps.InsetRgn.... */
 	$"0B51 7569 636B 6472 6177 2E68 0200 0000"            /* .Quickdraw.h.... */

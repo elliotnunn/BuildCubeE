@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"3A20 4F53 5479 7065 3B0D 2020 706F 7274"            /* : OSType;.  port */
 	$"5479 7065 3A20 4F53 5479 7065 293B 0D20"            /* Type: OSType);.  */
 	$"0D51 444F 6666 7363 7265 656E 2E70 0200"            /* .QDOffscreen.p.. */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0063 6C65 616E 0014 000C 0050 5043 456E"            /* .clean.....PPCEn */
 	$"6450 4250 7472 0015 0003 0070 6200 0016"            /* dPBPtr.....pb... */
 	$"0B50 726F 6365 7373 6573 2E70 0200 0000"            /* .Processes.p.... */

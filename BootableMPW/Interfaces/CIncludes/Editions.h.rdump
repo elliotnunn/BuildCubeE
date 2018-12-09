@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6B73 2077 6865 7468 6572 2074 6865 2064"            /* ks whether the d */
 	$"7269 7665 2063 6F6E 7461 696E 7320 616E"            /* rive contains an */
 	$"0A45 6469 7469 6F6E 732E 6800 0200 0000"            /* .Editions.h..... */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 C8FE 1952 652D 2068 6F77 2062 6967"            /* .....Re- how big */
 	$"2069 7320 6120 736F 636B 6574 2E6B 0200"            /*  is a socket.k.. */
 	$"1346 696C 6554 7261 6E73 6665 7254 6F6F"            /* .FileTransferToo */

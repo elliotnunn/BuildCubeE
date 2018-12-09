@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"4D50 5350 FFFE A6F0 98C0 0000 C52F 0C53"            /* MPSP........./.S */
 	$"6F75 7263 6553 6572 7665 7232 0000 0000"            /* ourceServer2.... */
 	$"0F50 4C53 7472 696E 6746 756E 6373 2E68"            /* .PLStringFuncs.h */

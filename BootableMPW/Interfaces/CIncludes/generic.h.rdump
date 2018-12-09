@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"3C2B 251B 373A 4470 7B91 B9B9 B8E1 D3B6"            /* <+%.7:Dp{....... */
 	$"D9B8 9189 6F4A 373C 1F28 403A 4F77 7D9B"            /* ....oJ7<.(@:Ow}. */
 	$"0967 656E 6572 6963 2E68 0200 0000 5445"            /* .generic.h....TE */

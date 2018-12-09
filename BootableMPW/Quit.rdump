@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6E73 2028 5965 732C 204E 6F2C 2043 616E"            /* ns (Yes, No, Can */
 	$"6365 6C29 0D2D 2020 200D 436F 6E74 696E"            /* cel).-   .Contin */
 	$"0451 7569 7480 0200 0000 5445 5854 4D50"            /* .Quit.....TEXTMP */

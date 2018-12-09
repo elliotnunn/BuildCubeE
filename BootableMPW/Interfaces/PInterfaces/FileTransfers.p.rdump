@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 0000 0000 0000 0000 0000 0000 0000"            /* ................ */
 	$"0000 09B4 0000 13BF 0000 0000 0000 0000"            /* ................ */
 	$"0F46 696C 6554 7261 6E73 6665 7273 2E70"            /* .FileTransfers.p */

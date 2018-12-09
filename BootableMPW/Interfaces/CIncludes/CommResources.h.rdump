@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6520 6C65 7474 6572 7320 2822 6161 6122"            /* e letters ("aaa" */
 	$"2C20 2262 6161 222C 0D20 2A09 2E2E 2E20"            /* , "baa",. *....  */
 	$"0F43 6F6D 6D52 6573 6F75 7263 6573 2E68"            /* .CommResources.h */

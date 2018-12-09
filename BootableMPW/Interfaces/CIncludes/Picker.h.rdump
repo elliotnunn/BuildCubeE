@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2020 2020 2020 2020 2020 6D65 6368 616E"            /*           mechan */
 	$"6973 6D20 7468 726F 7567 6820 7768 6963"            /* ism through whic */
 	$"0850 6963 6B65 722E 6800 0200 0000 5445"            /* .Picker.h.....TE */

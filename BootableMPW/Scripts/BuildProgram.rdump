@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"432C 2430 3030 452C 2441 4135 323B 0D0D"            /* C,$000E,$AA52;.. */
 	$"7B20 2070 6172 7469 616C 2072 6573 6F75"            /* {  partial resou */
 	$"0C42 7569 6C64 5072 6F67 7261 6D75 0200"            /* .BuildProgramu.. */

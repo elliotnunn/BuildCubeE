@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"5244 2020 2020 2020 2020 2020 2020 2020"            /* RD               */
 	$"2020 2024 4139 3646 0D5F 5761 6974 4E65"            /*    $A96F._WaitNe */
 	$"0844 756D 7046 696C 6500 0200 0000 4D50"            /* .DumpFile.....MP */

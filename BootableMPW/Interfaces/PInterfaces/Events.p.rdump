@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"003D 006D 4675 6C45 7272 203D 202D 3431"            /* .=.mFulErr = -41 */
 	$"3B20 7B6D 656D 6F72 7920 6675 6C6C 2028"            /* ; {memory full ( */
 	$"0845 7665 6E74 732E 7000 0200 0000 5445"            /* .Events.p.....TE */

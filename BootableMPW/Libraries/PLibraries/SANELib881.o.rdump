@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6C20 746F 2068 6F6C 6420 616C 6C20 6F66"            /* l to hold all of */
 	$"2074 6865 2063 6F6E 7465 6E74 7320 6F66"            /*  the contents of */
 	$"0C53 414E 454C 6962 3838 312E 6FE1 0200"            /* .SANELib881.o... */

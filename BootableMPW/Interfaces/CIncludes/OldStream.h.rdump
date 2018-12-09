@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"632E 632E 6F0D 090D 7B4F 626A 4469 727D"            /* c.c.o...{ObjDir} */
 	$"6474 6F72 732E 632E 6F09 C409 6474 6F72"            /* dtors.c.o...dtor */
 	$"0B4F 6C64 5374 7265 616D 2E68 0200 0000"            /* .OldStream.h.... */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0519 0A73 6342 7573 544F 4572 7200 0005"            /* ...scBusTOErr... */
 	$"1A00 0005 6B0F 7363 436F 6D70 6C50 6861"            /* ....k.scComplPha */
 	$"0A53 4353 4949 6E74 662E 7000 0200 0000"            /* .SCSIIntf.p..... */

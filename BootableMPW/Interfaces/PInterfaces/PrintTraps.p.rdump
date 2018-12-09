@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"3031 2C20 A920 4170 706C 6520 436F 6D70"            /* 01, . Apple Comp */
 	$"7574 6572 2C20 496E 632E 2031 3938 352D"            /* uter, Inc. 1985- */
 	$"0C50 7269 6E74 5472 6170 732E 7071 0200"            /* .PrintTraps.pq.. */

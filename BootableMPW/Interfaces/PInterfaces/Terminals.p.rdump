@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 0381 00A0 0000 0002 07FF 0000 1CD3"            /* ................ */
 	$"039C 0000 0005 0700 0000 1BF6 0022 0000"            /* .............".. */
 	$"0B54 6572 6D69 6E61 6C73 2E70 0200 0000"            /* .Terminals.p.... */

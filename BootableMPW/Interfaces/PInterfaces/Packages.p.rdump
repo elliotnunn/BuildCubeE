@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0D00 002B 0006 0033 3339 3938 0025 0005"            /* ...+...33998.%.. */
 	$"0079 6561 7200 0026 0005 0077 6F72 6400"            /* .year..&...word. */
 	$"0A50 6163 6B61 6765 732E 7000 0200 0000"            /* .Packages.p..... */

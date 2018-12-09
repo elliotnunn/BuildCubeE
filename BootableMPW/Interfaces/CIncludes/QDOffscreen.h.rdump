@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"7070 6C69 6361 7469 6F6E 0000 11FD 0000"            /* pplication...... */
 	$"126E 134C 6175 6E63 6844 6573 6B41 6363"            /* .n.LaunchDeskAcc */
 	$"0D51 444F 6666 7363 7265 656E 2E68 0200"            /* .QDOffscreen.h.. */

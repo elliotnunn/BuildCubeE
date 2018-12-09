@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"496E 7465 7266 6163 6573 2E70 09B6 0D09"            /* Interfaces.p.... */
 	$"0909 097B 546F 6F6C 7349 6E74 6673 4469"            /* ...{ToolsIntfsDi */
 	$"0746 696C 6544 6976 0200 0000 4D50 5354"            /* .FileDiv....MPST */

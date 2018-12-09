@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"5438 7000 01FF FF00 0008 8A00 5438 640C"            /* T8p.........T8d. */
 	$"43EE FFC0 700F 22D8 51C8 FFFC 206E 0008"            /* C...p.".Q... n.. */
 	$"0F49 6E74 6572 6661 6365 732E 6469 6374"            /* .Interfaces.dict */

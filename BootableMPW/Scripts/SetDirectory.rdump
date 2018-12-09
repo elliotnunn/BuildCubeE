@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6563 746F 7279 0D76 6572 7369 6F6E 203D"            /* ectory.version = */
 	$"0933 2E33 6131 0D0D 7B50 726F 6475 6374"            /* .3.3a1..{Product */
 	$"0C53 6574 4469 7265 6374 6F72 7975 0200"            /* .SetDirectoryu.. */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2045 7869 740D 5274 546F 4C66 740D 094E"            /*  Exit.RtToLft..N */
 	$"4547 2E57 0944 3109 093B 204D 616B 6520"            /* EG.W.D1..; Make  */
 	$"0650 6173 4D61 74DA 0200 0000 4D50 5354"            /* .PasMat.....MPST */

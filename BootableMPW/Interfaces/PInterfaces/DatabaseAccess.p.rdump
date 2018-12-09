@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 0000 0001 0003 0009 0000 000C 4475"            /* ..............Du */
 	$"706C 6963 6174 6520 4669 656C 6473 0000"            /* plicate Fields.. */
 	$"1044 6174 6162 6173 6541 6363 6573 732E"            /* .DatabaseAccess. */

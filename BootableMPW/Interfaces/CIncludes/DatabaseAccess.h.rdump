@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0074 7275 6500 0024 0005 0074 7275 6500"            /* .true..$...true. */
 	$"002D 0006 0066 616C 7365 002E 0006 0066"            /* .-...false.....f */
 	$"1044 6174 6162 6173 6541 6363 6573 732E"            /* .DatabaseAccess. */

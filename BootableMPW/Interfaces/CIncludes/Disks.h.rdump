@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"005B 0002 0031 005C 0002 0031 007A 0005"            /* .[...1.\...1.z.. */
 	$"0074 7275 6500 0078 0002 0031 0088 0002"            /* .true..x...1.... */
 	$"0744 6973 6B73 2E68 0200 0000 5445 5854"            /* .Disks.h....TEXT */

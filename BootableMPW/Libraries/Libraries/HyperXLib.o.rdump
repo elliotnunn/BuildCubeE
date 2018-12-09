@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0005 A9F0 12E8 3F3C 0005 A9F0 130C 3F3C"            /* ......?<......?< */
 	$"0005 A9F0 1902 3F3C 0005 A9F0 1966 3F3C"            /* ......?<.....f?< */
 	$"0B48 7970 6572 584C 6962 2E6F 0200 0000"            /* .HyperXLib.o.... */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"7A61 0142 3720 2020 202E 2E2E 2E2E 2E2E"            /* za.B7    ....... */
 	$"2E2E 2E2E 2E2E 2E2E 2E2E 2E2E 2E2E 2E2E"            /* ................ */
 	$"0E42 616C 6C6F 6F6E 5479 7065 732E 7242"            /* .BalloonTypes.rB */

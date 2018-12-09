@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2A2A 2A2A 2A2A 2A2A 2A2A 2A2A 2A2A 2A2A"            /* **************** */
 	$"2A2A 2A2A 2A2A 2A2A 2A2A 2A2A 2A2A 2A2A"            /* **************** */
 	$"0743 5479 7065 2E68 0200 0000 5445 5854"            /* .CType.h....TEXT */

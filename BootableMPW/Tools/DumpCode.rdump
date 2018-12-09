@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6520 656E 7472 6965 7320 7573 6564 203D"            /* e entries used = */
 	$"2025 645C 6E22 2C20 6865 6164 6572 2D3E"            /*  %d\n", header-> */
 	$"0844 756D 7043 6F64 6500 0200 0000 4D50"            /* .DumpCode.....MP */

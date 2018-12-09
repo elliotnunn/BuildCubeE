@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6E63 6C75 6465 2066 696C 6573 2E0D 0909"            /* nclude files.... */
 	$"0953 6574 2043 496E 636C 7564 6573 2022"            /* .Set CIncludes " */
 	$"0B55 7365 7253 7461 7274 7570 0200 0000"            /* .UserStartup.... */

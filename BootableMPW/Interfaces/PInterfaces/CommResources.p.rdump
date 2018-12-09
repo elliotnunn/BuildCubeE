@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6573 6F75 7263 6573 2E68 0D0D 0943 6F70"            /* esources.h...Cop */
 	$"7972 6967 6874 3A09 A920 3139 3930 2062"            /* yright:.. 1990 b */
 	$"0F43 6F6D 6D52 6573 6F75 7263 6573 2E70"            /* .CommResources.p */

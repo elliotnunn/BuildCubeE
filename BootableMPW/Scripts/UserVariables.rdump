@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 0A3F 044C 696E 6B3F 0200 0000 4D50"            /* ...?.Link?....MP */
 	$"5354 4D50 5320 0100 0200 0000 0000 0000"            /* STMPS .......... */
 	$"0D55 7365 7256 6172 6961 626C 6573 0200"            /* .UserVariables.. */

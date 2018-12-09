@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 0000 0000 0000 0000 0000 0000 0000"            /* ................ */
 	$"0000 5014 0000 541D 0000 94BC 0005 E06A"            /* ..P...T........j */
 	$"0E4E 6F74 6966 6963 6174 696F 6E2E 704E"            /* .Notification.pN */

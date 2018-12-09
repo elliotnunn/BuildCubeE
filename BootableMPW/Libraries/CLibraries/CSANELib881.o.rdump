@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0A61 6C6C 2010 2717 1B69 6FBE 256F 6E11"            /* .all .'..io.%on. */
 	$"260D 1A16 2E00 FC00 0009 1C08 3204 0643"            /* &...........2..C */
 	$"0D43 5341 4E45 4C69 6238 3831 2E6F 0200"            /* .CSANELib881.o.. */

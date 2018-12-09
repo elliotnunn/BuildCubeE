@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 0000 0000 0000 0000 0000 0000 0000"            /* ................ */
 	$"0000 0000 0000 0000 0000 0000 0000 0000"            /* ................ */
 	$"0D44 6972 6563 746F 7279 4D65 6E75 0200"            /* .DirectoryMenu.. */

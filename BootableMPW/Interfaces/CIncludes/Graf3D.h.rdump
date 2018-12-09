@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6349 4963 692E 2E2E 31A3 2E2E 202A 2F0D"            /* cIIci...1... *.. */
 	$"0924 2233 3142 4520 3131 3637 2036 3537"            /* .$"31BE 1167 657 */
 	$"0847 7261 6633 442E 6800 0200 0000 5445"            /* .Graf3D.h.....TE */

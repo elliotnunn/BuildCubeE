@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"00FD 0019 01A8 4000 0000 0000 0000 0003"            /* ......@......... */
 	$"0009 0000 000C 6E61 6D65 0000 0000 0026"            /* ......name.....& */
 	$"0944 6961 6C6F 6773 2E70 0200 0000 5445"            /* .Dialogs.p....TE */

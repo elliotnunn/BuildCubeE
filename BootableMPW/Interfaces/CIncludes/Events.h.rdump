@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6F72 206D 6173 6B73 000C 000C 0052 6F6E"            /* or masks.....Ron */
 	$"204D 6574 7A6B 6572 0016 0009 0063 6F6E"            /*  Metzker.....con */
 	$"0845 7665 6E74 732E 6800 0200 0000 5445"            /* .Events.h.....TE */

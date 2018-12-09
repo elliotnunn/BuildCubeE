@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6F20 7265 736F 7572 6365 7320 7265 6164"            /* o resources read */
 	$"2074 6865 2072 6573 6F75 7263 6520 6461"            /*  the resource da */
 	$"0B52 6573 6F75 7263 6573 2E70 0200 0000"            /* .Resources.p.... */

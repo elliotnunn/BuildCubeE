@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 0000 0000 0000 0000 0000 0000 0000"            /* ................ */
 	$"0000 0000 0000 0000 0000 0000 0004 9DC2"            /* ................ */
 	$"0743 6F6D 7061 7265 0200 0000 4D50 5354"            /* .Compare....MPST */

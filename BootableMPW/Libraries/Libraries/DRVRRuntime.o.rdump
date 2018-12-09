@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"7665 7273 2042 6967 4775 6C70 3A78 3A20"            /* vers BigGulp:x:  */
 	$"2D4C 2027 332E 3362 352C 20A9 2041 7070"            /* -L '3.3b5, . App */
 	$"0D44 5256 5252 756E 7469 6D65 2E6F 0200"            /* .DRVRRuntime.o.. */

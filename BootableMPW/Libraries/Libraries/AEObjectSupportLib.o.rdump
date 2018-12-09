@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 1C7C 0852 4F4D 204D 6170 734D 0100"            /* ...|.ROM MapsM.. */
 	$"0000 0003 0000 1CB6 9C57 2134 A2C7 96C3"            /* .........W!4.... */
 	$"1441 454F 626A 6563 7453 7570 706F 7274"            /* .AEObjectSupport */

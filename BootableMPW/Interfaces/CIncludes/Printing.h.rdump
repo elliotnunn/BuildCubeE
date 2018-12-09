@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"4D50 5258 FFFF A458 16B0 0000 005C 0D4D"            /* MPRX...X.....\.M */
 	$"6163 5072 6F6A 6563 7420 4949 7279 0000"            /* acProject IIry.. */
 	$"0A50 7269 6E74 696E 672E 6800 0200 0000"            /* .Printing.h..... */

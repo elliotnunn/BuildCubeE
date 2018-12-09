@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"4267 487A 0426 4EBA 1004 101F 6700 02D2"            /* BgHz.&N.....g... */
 	$"4267 486D F220 486E FDEC 4EBA 1368 101F"            /* BgHm. Hn..N..h.. */
 	$"0747 6573 7461 6C74 0200 0000 4D50 5354"            /* .Gestalt....MPST */

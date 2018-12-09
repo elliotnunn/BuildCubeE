@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6574 4441 466F 6E74 0000 13EE 0000 1433"            /* etDAFont.......3 */
 	$"0970 6172 616D 7465 7874 0000 1434 0000"            /* .paramtext...4.. */
 	$"0E44 6973 4173 6D4C 6F6F 6B75 702E 6844"            /* .DisAsmLookup.hD */

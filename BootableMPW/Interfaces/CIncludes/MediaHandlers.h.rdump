@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2020 2020 2020 2020 2020 2020 2045 5155"            /*              EQU */
 	$"2020 2020 2031 320D 6170 7032 4576 7420"            /*      12.app2Evt  */
 	$"0F4D 6564 6961 4861 6E64 6C65 7273 2E68"            /* .MediaHandlers.h */

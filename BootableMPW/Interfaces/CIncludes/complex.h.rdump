@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"3D20 6765 7465 6E76 2822 4369 6E63 6C75"            /* = getenv("Cinclu */
 	$"6465 7322 2929 097B 0909 2F2F 2061 6464"            /* des")).{..// add */
 	$"0963 6F6D 706C 6578 2E68 0200 0000 5445"            /* .complex.h....TE */

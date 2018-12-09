@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"322C 4430 0D09 0909 095F 5061 636B 3135"            /* 2,D0....._Pack15 */
 	$"0D09 0909 0945 4E44 4D0D 0D09 0909 094D"            /* .....ENDM......M */
 	$"1041 6374 696F 6E41 746F 6D49 6E74 662E"            /* .ActionAtomIntf. */

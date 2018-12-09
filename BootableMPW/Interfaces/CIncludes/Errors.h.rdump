@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0500 0000 5E00 2392 C806 FC00 0000 1C00"            /* ....^.#......... */
 	$"5E00 014D 5053 5200 0200 1276 6572 7300"            /* ^..MPSR....vers. */
 	$"0845 7272 6F72 732E 6800 0200 0000 5445"            /* .Errors.h.....TE */

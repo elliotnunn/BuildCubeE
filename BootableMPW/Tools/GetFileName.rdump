@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"670A 2F2E FFFC 4EAD 0BB2 584F 4EAD 0892"            /* g./...N...XON... */
 	$"486D C302 4EAD 0652 486E FFC8 7002 2F00"            /* Hm..N..RHn..p./. */
 	$"0B47 6574 4669 6C65 4E61 6D65 0200 0000"            /* .GetFileName.... */

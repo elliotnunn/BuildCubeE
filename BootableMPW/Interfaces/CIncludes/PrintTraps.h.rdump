@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0008 0B00 0007 0B00 0000 5E00 2B36 8008"            /* ..........^.+6.. */
 	$"7400 0000 1C00 5E00 014D 5053 5200 0200"            /* t.....^..MPSR... */
 	$"0C50 7269 6E74 5472 6170 732E 68E4 0200"            /* .PrintTraps.h... */

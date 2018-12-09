@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"7361 6765 3A20 7B30 7D20 3C66 756C 6C50"            /* sage: {0} <fullP */
 	$"6174 684E 616D 654F 6646 696C 653E 205B"            /* athNameOfFile> [ */
 	$"0853 7464 4C69 622E 6800 0200 0000 5445"            /* .StdLib.h.....TE */

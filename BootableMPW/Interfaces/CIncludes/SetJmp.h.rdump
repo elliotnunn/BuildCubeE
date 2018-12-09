@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"4A2C 0028 6D00 0208 082C 0004 001E 6600"            /* J,.(m....,....f. */
 	$"01FE 202C 0024 0480 6673 6D6E 6700 0188"            /* .. ,.$..fsmng... */
 	$"0853 6574 4A6D 702E 6800 0200 0000 5445"            /* .SetJmp.h.....TE */

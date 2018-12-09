@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"506F 696E 7409 0909 2751 4470 7427 0D23"            /* Point...'QDpt'.# */
 	$"2064 6566 696E 6520 6351 4452 6563 7461"            /*  define cQDRecta */
 	$"0C41 4552 6567 6973 7472 792E 7253 0200"            /* .AERegistry.rS.. */

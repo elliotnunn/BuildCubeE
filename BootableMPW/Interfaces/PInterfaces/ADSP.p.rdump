@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"7461 636B 733A 5669 6465 6F45 7175 7468"            /* tacks:VideoEquth */
 	$"6972 7479 5477 6F42 6974 4D6F 6465 0000"            /* irtyTwoBitMode.. */
 	$"0641 4453 502E 70DA 0200 0000 5445 5854"            /* .ADSP.p.....TEXT */

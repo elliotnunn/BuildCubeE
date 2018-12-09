@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6E64 6172 6450 7574 4669 6C65 0000 12F4"            /* ndardPutFile.... */
 	$"0000 13E0 0F53 7461 6E64 6172 6447 6574"            /* .....StandardGet */
 	$"0753 7461 7274 2E70 0200 0000 5445 5854"            /* .Start.p....TEXT */

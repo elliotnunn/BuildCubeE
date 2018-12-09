@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"636F 7069 6573 2073 6372 6970 7420 6672"            /* copies script fr */
 	$"6F6D 2066 6972 7374 2022 5365 6C22 2062"            /* om first "Sel" b */
 	$"0754 7261 7073 2E68 0200 0000 5445 5854"            /* .Traps.h....TEXT */

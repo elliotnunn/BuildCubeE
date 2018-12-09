@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 0002 0944 6F63 5669 6577 6572 0100"            /* .....DocViewer.. */
 	$"0000 0002 0000 1DC2 A7EF 2588 A7EF 2590"            /* ..........%...%. */
 	$"0642 6163 6B75 70DA 0200 0000 4D50 5354"            /* .Backup.....MPST */

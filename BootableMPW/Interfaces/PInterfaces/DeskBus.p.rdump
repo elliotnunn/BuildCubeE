@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"616D 6520 636F 6E74 656E 7473 2061 7320"            /* ame contents as  */
 	$"7468 6520 6465 6661 756C 7420 636F 6C6F"            /* the default colo */
 	$"0944 6573 6B42 7573 2E70 0200 0000 5445"            /* .DeskBus.p....TE */

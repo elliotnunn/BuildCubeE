@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"FFFF FFFF FFFF FFFF FFFF FFFF FFFF FFFF"            /* ................ */
 	$"FFFF FFFF FFFF FFFF FFFF FFFF FFFF FFFF"            /* ................ */
 	$"1243 524D 5365 7269 616C 4465 7669 6365"            /* .CRMSerialDevice */

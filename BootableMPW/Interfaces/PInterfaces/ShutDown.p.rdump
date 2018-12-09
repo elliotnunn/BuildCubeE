@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0962 696E 5265 664E 756D 0000 043D 0000"            /* .binRefNum...=.. */
 	$"0467 0B62 6F75 7452 6566 4E75 6D00 0000"            /* .g.boutRefNum... */
 	$"0A53 6875 7444 6F77 6E2E 7000 0200 0000"            /* .ShutDown.p..... */

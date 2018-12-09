@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"D5C0 226D F850 7028 D3C0 2049 B5C8 6300"            /* .."m.Pp(.. I..c. */
 	$"FFD4 6026 42A7 486D F8FA 4EBA FB9A 4878"            /* ..`&B.Hm..N...Hx */
 	$"0E41 4550 6163 6B4F 626A 6563 742E 6841"            /* .AEPackObject.hA */

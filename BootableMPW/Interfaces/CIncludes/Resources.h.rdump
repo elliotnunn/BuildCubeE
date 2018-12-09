@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2C20 666F 7220 6578 616D 706C 652C 2079"            /* , for example, y */
 	$"6F75 D576 650D 6368 616E 6765 6420 7265"            /* ou.ve.changed re */
 	$"0B52 6573 6F75 7263 6573 2E68 0200 0000"            /* .Resources.h.... */

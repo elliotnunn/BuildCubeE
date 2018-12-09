@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 434D 0B51 7569 636B 6472 6177 2E68"            /* ..CM.Quickdraw.h */
 	$"0200 0000 5445 5854 4D50 5320 0100 0000"            /* ....TEXTMPS .... */
 	$"0C49 6D61 6765 436F 6465 632E 7071 0200"            /* .ImageCodec.pq.. */

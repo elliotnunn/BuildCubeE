@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2F0B 4EBA F154 4FEF 0010 6024 5394 4A94"            /* /.N..TO...`$S.J. */
 	$"6D12 206C 0004 52AC 0004 10BC 0030 7030"            /* m. l..R......0p0 */
 	$"0A43 7265 6174 654D 616B 6500 0200 0000"            /* .CreateMake..... */

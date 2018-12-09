@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6573 2E72 220D 7265 736F 7572 6365 2027"            /* es.r".resource ' */
 	$"7665 7273 2720 2831 2920 7B0D 0974 6865"            /* vers' (1) {..the */
 	$"0943 6F6D 706C 6578 2E6F 0200 0000 4F42"            /* .Complex.o....OB */

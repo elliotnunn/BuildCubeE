@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2800 2C00 0132 6974 7320 6469 736B 2064"            /* (.,..2its disk d */
 	$"7269 7665 2073 6F20 7468 6174 2079 6F75"            /* rive so that you */
 	$"1049 6E73 7461 6C6C 6572 5479 7065 732E"            /* .InstallerTypes. */

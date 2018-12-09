@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 0011 0020 0000 0007 0700 0000 DC4D"            /* ..... .........M */
 	$"0004 0000 0002 0700 0000 DC4D 0072 0000"            /* ...........M.r.. */
 	$"0950 726F 634E 616D 6573 0200 0000 4D50"            /* .ProcNames....MP */

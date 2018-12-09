@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"5180 671A 5380 6716 5380 6712 5380 670E"            /* Q.g.S.g.S.g.S.g. */
 	$"2F0C 4EAD 035A 584F 0C54 00FB 66CC 4CEE"            /* /.N..ZXO.T..f.L. */
 	$"0B47 6574 4C69 7374 4974 656D 0200 0000"            /* .GetListItem.... */

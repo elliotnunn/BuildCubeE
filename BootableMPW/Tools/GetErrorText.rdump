@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2D20 6275 6666 6572 6564 2022 7772 6974"            /* - buffered "writ */
 	$"6522 2072 6F75 7469 6E65 202D 206E 6F20"            /* e" routine - no  */
 	$"0C47 6574 4572 726F 7254 6578 748D 0200"            /* .GetErrorText... */

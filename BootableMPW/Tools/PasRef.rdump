@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6572 6661 6365 732E 6100 0480 0013 0002"            /* erfaces.a....... */
 	$"0C49 4F49 6E74 6572 6661 6365 7300 0480"            /* .IOInterfaces... */
 	$"0650 6173 5265 66DA 0200 0000 4D50 5354"            /* .PasRef.....MPST */

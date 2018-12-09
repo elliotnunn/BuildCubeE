@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"7469 6F6E 7320 0923 2073 756D 6D61 7279"            /* tions .# summary */
 	$"206F 6620 7365 6C65 6374 696F 6E73 0D09"            /*  of selections.. */
 	$"084D 5057 2E48 656C 7000 0200 0000 5445"            /* .MPW.Help.....TE */

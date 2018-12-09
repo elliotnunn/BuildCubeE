@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0016 0000 0152 0002 000D 0043 5442 5574"            /* .....R.....CTBUt */
 	$"696C 6974 6965 7300 0003 0009 0068 6F6F"            /* ilities......hoo */
 	$"0645 4E45 542E 68DA 0200 0000 5445 5854"            /* .ENET.h.....TEXT */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6572 5072 6F63 5074 7220 6669 6C74 6572"            /* erProcPtr filter */
 	$"5072 6F63 2C0D 204E 4250 5265 706C 7920"            /* Proc,. NBPReply  */
 	$"0E43 5442 5574 696C 6974 6965 732E 7043"            /* .CTBUtilities.pC */

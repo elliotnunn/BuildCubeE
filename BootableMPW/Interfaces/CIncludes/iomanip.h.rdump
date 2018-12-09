@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"3200 0063 6B69 6400 0000 0A00 8000 0000"            /* 2..ckid......... */
 	$"0000 0000 8B6E F809 5072 6F6A 6563 746F"            /* .....n..Projecto */
 	$"0969 6F6D 616E 6970 2E68 0200 0000 5445"            /* .iomanip.h....TE */

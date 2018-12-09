@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"7363 616C 2076 6F69 6420 5365 7453 7464"            /* scal void SetStd */
 	$"4350 726F 6373 2843 5144 5072 6F63 7320"            /* CProcs(CQDProcs  */
 	$"0643 686F 6F73 65DA 0200 0000 4D50 5354"            /* .Choose.....MPST */

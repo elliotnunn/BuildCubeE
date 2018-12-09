@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0026 0002 0031 0032 0002 0031 005A 0014"            /* .&...1.2...1.Z.. */
 	$"0073 7464 514C 656E 6774 6820 4551 5520"            /* .stdQLength EQU  */
 	$"0753 6F75 6E64 2E70 0200 0000 5445 5854"            /* .Sound.p....TEXT */

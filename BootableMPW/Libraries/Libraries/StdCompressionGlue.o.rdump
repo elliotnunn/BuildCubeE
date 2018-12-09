@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6973 6B75 0000 FF00 0001 115E 0001 84E7"            /* isku.......^.... */
 	$"0001 85D6 0001 8934 0001 F95F 0002 02CF"            /* .......4..._.... */
 	$"1453 7464 436F 6D70 7265 7373 696F 6E47"            /* .StdCompressionG */

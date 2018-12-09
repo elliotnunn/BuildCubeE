@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 35CA 0000 0000 0000 0000 0000 0000"            /* ..5............. */
 	$"0000 0000 0000 0000 0000 0000 0000 0000"            /* ................ */
 	$"0B41 454F 626A 6563 7473 2E70 0200 0000"            /* .AEObjects.p.... */

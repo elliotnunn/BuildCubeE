@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"1007 4880 D07C 4880 3F00 4EAD 0742 7A20"            /* ..H..|H.?.N..Bz  */
 	$"486D ED8E 486E FFB4 3005 E140 D07C 000E"            /* Hm..Hn..0..@.|.. */
 	$"0744 756D 704F 626A 0200 0000 4D50 5354"            /* .DumpObj....MPST */

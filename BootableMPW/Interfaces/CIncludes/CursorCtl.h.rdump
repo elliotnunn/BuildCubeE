@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6E00 2B36 7C00 01FF FF00 0000 8C00 2B36"            /* n.+6|.........+6 */
 	$"6420 2020 2020 2020 2020 2020 2020 2020"            /* d                */
 	$"0B43 7572 736F 7243 746C 2E68 0200 0000"            /* .CursorCtl.h.... */

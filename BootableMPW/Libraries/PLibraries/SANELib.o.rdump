@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"7379 7374 656D 2073 6F66 7477 6172 65C9"            /* system software. */
 	$"0A44 6573 6B74 6F70 2044 420A 4465 736B"            /* .Desktop DB.Desk */
 	$"0953 414E 454C 6962 2E6F 0200 0000 4F42"            /* .SANELib.o....OB */

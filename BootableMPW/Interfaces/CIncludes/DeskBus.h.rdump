@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 0467 0B53 7973 7465 6D45 7665 6E74"            /* ...g.SystemEvent */
 	$"0000 0468 0000 049E 0A53 7973 7465 6D4D"            /* ...h.....SystemM */
 	$"0944 6573 6B42 7573 2E68 0200 0000 5445"            /* .DeskBus.h....TE */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6F20 796F 7520 7761 6E74 2074 6F20 7072"            /* o you want to pr */
 	$"6F63 6565 643F 2011 0D0D 2D2D 2D2D 4849"            /* oceed? ...----HI */
 	$"0B41 454F 626A 6563 7473 2E68 0200 0000"            /* .AEObjects.h.... */

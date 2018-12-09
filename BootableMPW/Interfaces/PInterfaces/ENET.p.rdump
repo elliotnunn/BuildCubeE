@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"3A20 4576 656E 7452 6563 6F72 6429 3A20"            /* : EventRecord):  */
 	$"424F 4F4C 4541 4E3B 0D09 494E 4C49 4E45"            /* BOOLEAN;..INLINE */
 	$"0645 4E45 542E 70DA 0200 0000 5445 5854"            /* .ENET.p.....TEXT */

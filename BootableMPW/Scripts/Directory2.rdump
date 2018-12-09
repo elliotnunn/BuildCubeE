@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 0004 019B 04A0 0003 04A5 0001 05F1"            /* ................ */
 	$"0002 0700 0000 0004 01A1 05F4 0002 0602"            /* ................ */
 	$"0A44 6972 6563 746F 7279 3200 0200 0000"            /* .Directory2..... */

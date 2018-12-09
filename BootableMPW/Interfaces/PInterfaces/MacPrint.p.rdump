@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"352D 3139 3930 2E00 0001 0000 0004 1700"            /* 5-1990.......... */
 	$"0003 1700 0000 4600 2B36 8008 7400 0000"            /* ......F.+6..t... */
 	$"0A4D 6163 5072 696E 742E 7000 0200 0000"            /* .MacPrint.p..... */

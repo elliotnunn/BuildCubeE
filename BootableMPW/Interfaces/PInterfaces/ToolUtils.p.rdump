@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6E00 2B37 4400 01FF FF00 0000 8C00 2B36"            /* n.+7D.........+6 */
 	$"EC20 2020 2020 2020 2020 2020 2020 2020"            /* .                */
 	$"0B54 6F6F 6C55 7469 6C73 2E70 0200 0000"            /* .ToolUtils.p.... */

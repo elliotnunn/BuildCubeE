@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6261 6C20 4D50 5749 6E69 740D 6966 204D"            /* bal MPWInit.if M */
 	$"5057 496E 6974 203C 3E20 7472 7565 2074"            /* PWInit <> true t */
 	$"0C47 6573 7461 6C74 4571 752E 7071 0200"            /* .GestaltEqu.pq.. */

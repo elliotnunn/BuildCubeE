@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6572 3A0D 03A9 F001 D43F 3C00 04A9 F002"            /* er:......?<..... */
 	$"003F 3C00 04A9 F003 6C3F 3C00 04A9 F005"            /* .?<.....l?<..... */
 	$"1355 6E61 6C69 6173 536F 7572 6365 5365"            /* .UnaliasSourceSe */

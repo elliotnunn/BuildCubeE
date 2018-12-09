@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6500 002D 0006 0066 616C 7365 002E 0006"            /* e..-...false.... */
 	$"0066 616C 7365 002F 0005 0074 7275 6500"            /* .false./...true. */
 	$"0853 6372 6970 742E 7000 0200 0000 5445"            /* .Script.p.....TE */

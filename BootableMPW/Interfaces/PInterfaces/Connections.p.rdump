@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 0000 0000 0000 0000 0000 0000 0000"            /* ................ */
 	$"0000 0000 0000 0000 0000 0000 0000 0000"            /* ................ */
 	$"0D43 6F6E 6E65 6374 696F 6E73 2E70 0200"            /* .Connections.p.. */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6300 000D 0C00 000D 960B 5374 796C 6554"            /* c.........StyleT */
 	$"6162 6C65 0000 000D 9800 000D E709 4E61"            /* able..........Na */
 	$"0E4D 6F76 6965 7346 6F72 6D61 742E 704D"            /* .MoviesFormat.pM */

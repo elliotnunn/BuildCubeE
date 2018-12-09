@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"014D 5053 5200 0200 1276 6572 7300 0000"            /* .MPSR....vers... */
 	$"3603 EDFF FF00 0000 0000 2B36 6403 EFFF"            /* 6.........+6d... */
 	$"0950 616C 6574 7465 2E68 0200 0000 5445"            /* .Palette.h....TE */

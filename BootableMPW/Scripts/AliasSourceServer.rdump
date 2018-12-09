@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"723A 5072 6566 6572 656E 6365 733A 4D50"            /* r:Preferences:MP */
 	$"573A 5573 6572 5374 6172 7475 70A5 204B"            /* W:UserStartup. K */
 	$"1141 6C69 6173 536F 7572 6365 5365 7276"            /* .AliasSourceServ */

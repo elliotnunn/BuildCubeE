@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6174 696F 6E0D 7253 7461 7475 7320 2020"            /* ation.rStatus    */
 	$"0909 4551 5520 0909 2431 4330 3020 0909"            /* ..EQU ..$1C00 .. */
 	$"0770 726F 6666 2E6F 0200 0000 4F42 4A20"            /* .proff.o....OBJ  */

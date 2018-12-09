@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0200 0000 FFFF 0002 0000 000C 0001 0000"            /* ................ */
 	$"0C81 0000 BF93 0000 0449 5445 4D4D 4C49"            /* .........ITEMMLI */
 	$"0653 494F 572E 6FDA 0200 0000 4F42 4A20"            /* .SIOW.o.....OBJ  */

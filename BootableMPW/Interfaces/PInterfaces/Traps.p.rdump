@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"204D 616E 6167 6572 3F0D 0D0D 3B20 466F"            /*  Manager?...; Fo */
 	$"6E74 204D 616E 6167 6572 0D0D 0D00 7365"            /* nt Manager....se */
 	$"0754 7261 7073 2E70 0200 0000 5445 5854"            /* .Traps.p....TEXT */

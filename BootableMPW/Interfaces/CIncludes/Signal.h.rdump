@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"102D F2D0 4CEE 1800 FFE4 4E5E 4E75 8B67"            /* .-..L.....N^Nu.g */
 	$"6574 4D61 6E79 4469 7273 0000 0000 0970"            /* etManyDirs.....p */
 	$"0853 6967 6E61 6C2E 6800 0200 0000 5445"            /* .Signal.h.....TE */

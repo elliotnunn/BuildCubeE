@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"FFFF 2400 2877 0000 F58C 3A39 FFFF 2400"            /* ..$.(w....:9..$. */
 	$"4352 0000 F51C 0762 FFFF 2400 4E8D 0000"            /* CR.....b..$.N... */
 	$"0942 7569 6C64 4D65 6E75 0200 0000 5445"            /* .BuildMenu....TE */

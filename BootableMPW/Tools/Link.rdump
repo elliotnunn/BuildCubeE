@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2020 2020 2020 2020 2020 207B 2044 6573"            /*            { Des */
 	$"7469 6E61 7469 6F6E 2072 656A 6563 7465"            /* tination rejecte */
 	$"044C 696E 6B80 0200 0000 4D50 5354 4D50"            /* .Link.....MPSTMP */

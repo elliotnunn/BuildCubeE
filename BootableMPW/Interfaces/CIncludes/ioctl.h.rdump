@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2069 6E20 7468 650D 202A 0966 6F72 6D20"            /*  in the. *.form  */
 	$"746D 702E 4141 4158 5858 5858 582C 2077"            /* tmp.AAAXXXXXX, w */
 	$"0769 6F63 746C 2E68 0200 0000 5445 5854"            /* .ioctl.h....TEXT */

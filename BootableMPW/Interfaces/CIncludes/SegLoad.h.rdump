@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"632E 2031 3938 352D 3139 3930 2E00 0001"            /* c. 1985-1990.... */
 	$"0000 0004 1D00 0003 1D00 0000 5E00 2B36"            /* ............^.+6 */
 	$"0953 6567 4C6F 6164 2E68 0200 0000 5445"            /* .SegLoad.h....TE */

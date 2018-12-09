@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"01B6 0000 0000 0000 0000 0000 0000 0033"            /* ...............3 */
 	$"0320 6000 0000 0433 2E30 3127 332E 3031"            /* . `....3.01'3.01 */
 	$"0952 4F4D 4465 6673 2E68 0200 0000 5445"            /* .ROMDefs.h....TE */

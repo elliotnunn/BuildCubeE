@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"7327 0D41 6464 4D65 6E75 2044 6972 6563"            /* s'.AddMenu Direc */
 	$"746F 7279 2027 5365 7420 4469 7265 6374"            /* tory 'Set Direct */
 	$"1043 6F6D 7061 7265 5265 7669 7369 6F6E"            /* .CompareRevision */

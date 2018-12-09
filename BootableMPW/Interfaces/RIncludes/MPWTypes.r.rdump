@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6865 2074 7261 7020 776F 7264 2069 6E64"            /* he trap word ind */
 	$"6963 6174 6573 2074 6865 7365 0D09 2073"            /* icates these.. s */
 	$"0A4D 5057 5479 7065 732E 7200 0200 0000"            /* .MPWTypes.r..... */

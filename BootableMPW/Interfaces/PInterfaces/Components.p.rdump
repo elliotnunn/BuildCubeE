@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 4EC4 0000 0C21 705F 7475 746F 722E"            /* ..N....!p_tutor. */
 	$"6961 3000 0F00 0002 0000 FFFF 0000 0007"            /* ia0............. */
 	$"0C43 6F6D 706F 6E65 6E74 732E 7071 0200"            /* .Components.pq.. */

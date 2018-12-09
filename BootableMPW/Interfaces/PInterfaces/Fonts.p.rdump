@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0443 0000 0486 1B6B 5072 696E 744D 6F6E"            /* .C.....kPrintMon */
 	$"6974 6F72 446F 6373 466F 6C64 6572 5479"            /* itorDocsFolderTy */
 	$"0746 6F6E 7473 2E70 0200 0000 5445 5854"            /* .Fonts.p....TEXT */

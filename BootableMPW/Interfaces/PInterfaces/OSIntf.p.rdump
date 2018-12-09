@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"332E 3031 2C20 A920 4170 706C 6520 436F"            /* 3.01, . Apple Co */
 	$"6D70 7574 6572 2C20 496E 632E 2031 3938"            /* mputer, Inc. 198 */
 	$"084F 5349 6E74 662E 7000 0200 0000 5445"            /* .OSIntf.p.....TE */

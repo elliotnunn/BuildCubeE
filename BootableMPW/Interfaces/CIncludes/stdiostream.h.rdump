@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0701 0101 0101 0102 0600 0000 0000 0002"            /* ................ */
 	$"0701 0101 0101 0102 0600 0000 0000 0002"            /* ................ */
 	$"0D73 7464 696F 7374 7265 616D 2E68 0200"            /* .stdiostream.h.. */

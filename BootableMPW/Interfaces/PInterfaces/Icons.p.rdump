@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6970 7469 7665 0D3B 0909 3C31 313E 0920"            /* iptive.;..<11>.  */
 	$"392F 3135 2F39 3009 4443 0909 5265 6D6F"            /* 9/15/90.DC..Remo */
 	$"0749 636F 6E73 2E70 0200 0000 5445 5854"            /* .Icons.p....TEXT */

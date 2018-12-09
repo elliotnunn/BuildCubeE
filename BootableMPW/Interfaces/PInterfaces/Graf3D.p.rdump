@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"7461 6C74 4D61 6350 6C75 7300 0000 2D55"            /* taltMacPlus...-U */
 	$"0000 2D66 0D67 6573 7461 6C74 4D61 6353"            /* ..-f.gestaltMacS */
 	$"0847 7261 6633 442E 7000 0200 0000 5445"            /* .Graf3D.p.....TE */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6F6E 0909 0927 6A75 7374 270D 2320 6465"            /* on...'just'.# de */
 	$"6669 6E65 2065 6E75 6D4B 6579 466F 726D"            /* fine enumKeyForm */
 	$"0C41 4552 6567 6973 7472 792E 7071 0200"            /* .AERegistry.pq.. */

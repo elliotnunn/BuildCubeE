@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6572 0D50 5043 546F 6F6C 426F 780D 5072"            /* er.PPCToolBox.Pr */
 	$"696E 7469 6E67 0D50 726F 6365 7373 6573"            /* inting.Processes */
 	$"064D 4944 492E 70DA 0200 0000 5445 5854"            /* .MIDI.p.....TEXT */

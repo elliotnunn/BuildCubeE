@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"09A5 07E7 0543 0CA3 0CA3 0C93 0B68 0624"            /* .....C.......h.$ */
 	$"0624 0624 0624 0624 0624 07E7 07E7 07E7"            /* .$.$.$.$.$...... */
 	$"0C53 6F75 6E64 496E 7075 742E 68E4 0200"            /* .SoundInput.h... */

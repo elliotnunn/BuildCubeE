@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"5374 6174 6500 0000 0B95 0000 0BEB 0F47"            /* State..........G */
 	$"6574 5069 7842 6173 6541 6464 7200 0000"            /* etPixBaseAddr... */
 	$"0B51 7569 636B 6472 6177 2E70 0200 0000"            /* .Quickdraw.p.... */

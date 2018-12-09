@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 0433 2E30 3127 332E 3031 2C20 A920"            /* ...3.01'3.01, .  */
 	$"4170 706C 6520 436F 6D70 7574 6572 2C20"            /* Apple Computer,  */
 	$"0953 7472 696E 6773 2E70 0200 0000 5445"            /* .Strings.p....TE */

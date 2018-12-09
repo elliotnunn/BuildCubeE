@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"1F46 6174 616C 2065 7272 6F72 2072 6572"            /* .Fatal error rer */
 	$"6561 6469 6E67 2070 7265 7669 6F75 7320"            /* eading previous  */
 	$"084F 626A 4C69 622E 6F00 0200 0000 4F42"            /* .ObjLib.o.....OB */

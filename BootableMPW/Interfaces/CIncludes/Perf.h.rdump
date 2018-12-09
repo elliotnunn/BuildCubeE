@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6F72 6544 6576 6963 6543 6C75 7400 000E"            /* oreDeviceClut... */
 	$"5200 000E 9F0D 5265 7369 7A65 5061 6C65"            /* R.....ResizePale */
 	$"0650 6572 662E 68DA 0200 0000 5445 5854"            /* .Perf.h.....TEXT */

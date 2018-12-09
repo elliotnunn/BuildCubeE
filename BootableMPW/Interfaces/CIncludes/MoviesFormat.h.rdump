@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"6563 7420 436F 6465 6308 7072 6F67 7265"            /* ect Codec.progre */
 	$"7373 0E73 6176 6520 6173 2064 6961 6C6F"            /* ss.save as dialo */
 	$"0E4D 6F76 6965 7346 6F72 6D61 742E 684D"            /* .MoviesFormat.hM */

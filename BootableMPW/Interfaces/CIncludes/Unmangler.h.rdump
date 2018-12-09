@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0000 68D0 0D73 7464 696F 7374 7265 616D"            /* ..h..stdiostream */
 	$"2E68 0200 0000 5445 5854 4D50 5320 0100"            /* .h....TEXTMPS .. */
 	$"0B55 6E6D 616E 676C 6572 2E68 0200 0000"            /* .Unmangler.h.... */

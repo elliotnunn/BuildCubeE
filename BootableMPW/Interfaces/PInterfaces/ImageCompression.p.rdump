@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"524D 5365 6172 6368 5265 6C46 6972 7374"            /* RMSearchRelFirst */
 	$"0000 0005 6400 0005 990B 6173 695A 6F6E"            /* ....d.....asiZon */
 	$"1249 6D61 6765 436F 6D70 7265 7373 696F"            /* .ImageCompressio */

@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"7565 0000 0006 A100 0006 C011 6C61 756E"            /* ue..........laun */
 	$"6368 4E6F 4669 6C65 466C 6167 7300 0006"            /* chNoFileFlags... */
 	$"1551 7569 636B 5469 6D65 436F 6D70 6F6E"            /* .QuickTimeCompon */

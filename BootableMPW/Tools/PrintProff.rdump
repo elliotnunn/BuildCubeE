@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"7263 653A 5061 7273 6572 3A22 202D 6920"            /* rce:Parser:" -i  */
 	$"2242 6967 4775 6C70 3A41 5331 2E30 6663"            /* "BigGulp:AS1.0fc */
 	$"0A50 7269 6E74 5072 6F66 6600 0200 0000"            /* .PrintProff..... */

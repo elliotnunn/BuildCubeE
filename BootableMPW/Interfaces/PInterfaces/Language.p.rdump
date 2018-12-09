@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"4400 0015 0004 0073 7263 0016 000F 0073"            /* D......src.....s */
 	$"7472 7563 7420 506F 696E 7433 4400 0017"            /* truct Point3D... */
 	$"0A4C 616E 6775 6167 652E 7000 0200 0000"            /* .Language.p..... */

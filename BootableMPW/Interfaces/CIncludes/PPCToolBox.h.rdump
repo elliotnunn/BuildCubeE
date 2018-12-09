@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"063A 3503 0000 0000 012E 805E 6311 FF82"            /* .:5........^c... */
 	$"5C6A 704F 1228 6E00 0801 302B 8778 5650"            /* \jpO.(n...0+.xVP */
 	$"0C50 5043 546F 6F6C 426F 782E 68E4 0200"            /* .PPCToolBox.h... */

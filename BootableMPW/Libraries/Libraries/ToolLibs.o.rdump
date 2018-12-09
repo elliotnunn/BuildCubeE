@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2A45 7272 6F72 206F 6363 7572 6564 2064"            /* *Error occured d */
 	$"7572 696E 6720 5F73 4765 7450 5241 4D52"            /* uring _sGetPRAMR */
 	$"0A54 6F6F 6C4C 6962 732E 6F00 0200 0000"            /* .ToolLibs.o..... */

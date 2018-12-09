@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0024 0000 0952 0022 0001 0100 0000 0000"            /* .$...R."........ */
 	$"0000 0000 0000 0000 0000 0001 0000 000C"            /* ................ */
 	$"0A50 6963 7455 7469 6C2E 6800 0200 0000"            /* .PictUtil.h..... */

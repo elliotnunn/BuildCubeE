@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"202D 3130 302C 202D 3130 302C 202D 3130"            /*  -100, -100, -10 */
 	$"307D 2C20 2222 2C20 2227 222C 204E 6F74"            /* 0}, "", "'", Not */
 	$"0D42 7569 6C64 436F 6D6D 616E 6473 0200"            /* .BuildCommands.. */

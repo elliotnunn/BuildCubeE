@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2449 4643 2055 4E44 4546 494E 4544 2055"            /* $IFC UNDEFINED U */
 	$"7369 6E67 4469 616C 6F67 737D 0D7B 2449"            /* singDialogs}.{$I */
 	$"0D50 6572 666F 726D 5265 706F 7274 0200"            /* .PerformReport.. */

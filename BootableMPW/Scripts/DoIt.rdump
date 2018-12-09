@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"4F52 2120 2323 2323 220D 0909 0942 7265"            /* OR! ####"....Bre */
 	$"616B 0D09 0945 6E64 0D09 0942 7265 616B"            /* ak...End...Break */
 	$"0444 6F49 7480 0200 0000 5445 5854 4D50"            /* .DoIt.....TEXTMP */

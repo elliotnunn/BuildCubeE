@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"732E 0D20 2A2F 0D0D 2364 6566 696E 6520"            /* s.. *...#define  */
 	$"7374 6469 6E09 0928 265F 696F 625B 305D"            /* stdin..(&_iob[0] */
 	$"084C 6F63 616C 652E 6800 0200 0000 5445"            /* .Locale.h.....TE */

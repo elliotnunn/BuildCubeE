@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"0029 0003 0198 0220 0000 0000 0000 0000"            /* .)..... ........ */
 	$"0000 0000 0000 0000 0033 0320 6000 0000"            /* .........3. `... */
 	$"0A44 6973 6B49 6E69 742E 6800 0200 0000"            /* .DiskInit.h..... */

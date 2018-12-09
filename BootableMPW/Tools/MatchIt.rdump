@@ -1,5 +1,5 @@
 #if 0
-data '????' (0, "Header as fake resource (not for Rez)") {
+data 'header' (0, "Header as fake resource (not for Rez)") {
 	$"2A2A 2A2A 2A2A 2A2A 2A2A 2A2A 2A2A 2A2A"            /* **************** */
 	$"2A2A 2A2A 2A2A 2A2A 2A2A 2A2A 2A2A 2A2A"            /* **************** */
 	$"074D 6174 6368 6974 0200 0000 4D50 5354"            /* .Matchit....MPST */
