@@ -10,7 +10,8 @@ import shutil
 import re
 from datetime import datetime
 from subprocess import run, PIPE, DEVNULL
-from machfs import Volume
+from machfs import Volume, Folder, File
+from macresources import parse_file, make_file
 
 ########################################################################
 
@@ -68,7 +69,9 @@ args = argparse.ArgumentParser(description='''
 ''')
 args.add_argument('src', metavar='SOURCES', action='store', help='Source tree')
 args.add_argument('-e', dest='emu', metavar='VMAC', action='store', default=None, help='path to emulator')
-args.add_argument('-c', dest='cmd', metavar='CMD', action='store', default=None, help='MPW Shell command line')
+group = args.add_mutually_exclusive_group()
+group.add_argument('--resedit', action='store_true', help='placeholder')
+group.add_argument('-c', dest='mpwcmd', metavar='CMD', action='store', default=None, help='MPW Shell command line')
 args.add_argument('-v', dest='verbose', action='store_true', help='verbose')
 args = args.parse_args()
 treedest = path.join(args.src, 'BuildImage')
@@ -206,39 +209,90 @@ if overs:
 
 ########################################################################
 
-log('Copying System Folder', flush=True)
-
-sysfold = path.join(path.dirname(path.abspath(__file__)), 'BootableMPW')
-sysfold2 = path.join(treedest, 'BootableMPW')
-shutil.copytree(sysfold, sysfold2)
-
-with open(path.join(treedest, 'BootableMPW', 'UserStartup'), 'a') as f:
-    print('SetDirectory Src:', file=f)
-
-    print('Set Exit 0', file=f)
-
-    datstr = get_build_date(args.src)
-    if datstr:
-        log('Setting build date: %s' % datstr, flush=True)
-        ticks = ticks_from_str(datstr)
-        print('SetTicks %d # %s' % (ticks, datstr), file=f)
-
-    if args.cmd:
-        print(args.cmd, file=f)
-        print('Quit', file=f)
-
-########################################################################
-
-log('Generating disk image', flush=True)
+log('Loading source tree into memory', flush=True)
 
 vol = Volume()
-vol.name = 'Src'
-vol.read_folder(treedest, date=0x90000000, mpw_dates=True)
-image = vol.write(256*1024*1024, startapp=('BootableMPW', 'MPW Shell'), align=4096)
-with open(imgdest, 'wb') as f:
-    f.write(image)
+vol.name = 'Disk'
+vol['Src'] = Folder()
+vol['Src'].read_folder(treedest, date=0x90000000, mpw_dates=True)
 
 ########################################################################
+
+log('Inserting System and apps', flush=True)
+
+def folder(name):
+    return path.join(path.dirname(path.abspath(__file__)), name)
+
+def pstring(string):
+    string = string.encode('mac_roman')
+    return bytes([len(string)]) + string
+
+# We need a System Folder
+vol['System Folder'] = Folder()
+vol['System Folder'].read_folder(folder('System-7.1'), date=0x80000000)
+
+if 1: # has MPW
+    vol['MPW'] = Folder()
+    vol['MPW'].read_folder(folder('MPW-3.2.3'), date=0x80000000)
+
+    # Clear Worksheet window and reset its position and size
+    vol['MPW']['Worksheet'].data = vol['MPW']['Worksheet'].rsrc = b''
+
+if 1: # has apps in Apple Menu
+    vol['System Folder']['Apple Menu Items'] = Folder()
+    vol['System Folder']['Apple Menu Items'].read_folder(folder('Apps'), date=0x80000000)
+
+# Tell MPW what to do when it starts (can use {Src} in their -c command)
+bootscript = 'Set Src Disk:Src:; Export Src; Directory {Src}\r'
+if args.mpwcmd: bootscript += 'Set Exit 0; %s; Quit\r' % args.mpwcmd
+vol['MPW']['UserStartup'].data = bootscript.encode('mac_roman')
+
+# Evil tuning: more RAM for MPW because some tools do not use temp mem
+mpw = list(parse_file(vol['MPW']['MPW Shell'].rsrc))
+for resource in mpw:
+    if resource.type == b'SIZE':
+        resource.data = resource.data[:2] + (0x300000).to_bytes(4, byteorder='big') * 2 + resource.data[10:]
+vol['MPW']['MPW Shell'].rsrc = make_file(mpw)
+
+# Patch the Process Manager to shut down when the last visible app quits,
+# which it normally does when the startup app isn't a 'FNDR'.
+# At that point, replace ShutDwnUserChoice() with ShutDwnPower().
+# Also, follow a special path to the startup app, instead of Finder name global.
+if args.mpwcmd is not None:
+    startapp = 'Disk:MPW:MPW Shell'
+elif args.resedit:
+    startapp = 'Disk:System Folder:Apple Menu Items:ResEdit'
+else:
+    startapp = None
+
+sys = list(parse_file(vol['System Folder']['System'].rsrc))
+for resource in sys:
+    if resource.type != b'scod': continue # "System CODE" resources = Process Mgr
+
+    resource.data = resource.data.replace(b'FNDR', b'LUSR')
+    resource.data = resource.data.replace(b'\x3F\x3C\x00\x05\xA8\x95', b'\x3F\x3C\x00\x01\xA8\x95')
+
+    if startapp: # Change arg 3 of FSMakeFSSpec(BootVol, 0, FinderName, &mySpec) to custom path
+        data = bytearray(resource.data)
+        pea = b'\x48\x78\x02\xE0' # Find 'PEA $2E0' (accesses the Str15 FinderName)...
+        str_offset = None
+        while pea in data:
+            if not str_offset:
+                while len(data) % 2: data.append(0)
+                str_offset = len(data)
+                data.extend(pstring(startapp))
+
+            offset = data.index(pea)
+            data[offset:offset+2] = b'\x48\x7A' # ...replace with PC-relative 'PEA startapp'
+            data[offset+2:offset+4] = (str_offset - (offset+2)).to_bytes(2, byteorder='big')
+        resource.data = bytes(data)
+vol['System Folder']['System'].rsrc = make_file(sys)
+
+########################################################################
+
+log('Writing out disk image')
+with open(imgdest, 'wb') as f:
+    f.write(vol.write(256*1024*1024, align=4096))
 
 if not args.emu: exit()
 log('Starting emulator...', flush=True)
@@ -252,8 +306,8 @@ log('Slurping output', flush=True)
 vol = Volume()
 with open(imgdest, 'rb') as f:
     vol.read(f.read())
-bootdir = vol.pop('BootableMPW')
-vol.write_folder(args.src)
+vol['Src'].write_folder(args.src)
 
-wsheet = bootdir['Worksheet'].data.decode('mac_roman').replace('\r', '\n')
-print(wsheet, end='')
+if args.mpwcmd is not None:
+    wsheet = vol['MPW']['Worksheet'].data.decode('mac_roman').replace('\r', '\n')
+    print(wsheet, end='')
