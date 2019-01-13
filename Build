@@ -229,7 +229,7 @@ def pstring(string):
 
 # We need a System Folder
 vol['System Folder'] = Folder()
-vol['System Folder'].read_folder(folder('System-7.1'), date=0x80000000)
+vol['System Folder'].read_folder(folder('System-7.0.1'), date=0x80000000)
 
 if 1: # has MPW
     vol['MPW'] = Folder()
