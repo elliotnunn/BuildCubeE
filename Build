@@ -288,6 +288,17 @@ for resource in sys:
         resource.data = bytes(data)
 vol['System Folder']['System'].rsrc = make_file(sys)
 
+# Patch the Finder to give it a Quit menu item
+finder = list(parse_file(vol['System Folder']['Finder'].rsrc))
+for resource in finder:
+    if resource.type == b'fmnu' and b'Put Away' in resource.data:
+        data = bytearray(resource.data)
+        data[3] += 2
+        data.extend(b'xxx0\0\0\0\0\x01\x2D')
+        data.extend(b'quit\x81\x00\x51\x00\x04Quit\0')
+        resource.data = bytes(data)
+vol['System Folder']['Finder'].rsrc = make_file(finder)
+
 ########################################################################
 
 log('Writing out disk image')
