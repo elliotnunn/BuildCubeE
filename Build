@@ -292,7 +292,7 @@ vol['System Folder']['System'].rsrc = make_file(sys)
 
 log('Writing out disk image')
 with open(imgdest, 'wb') as f:
-    f.write(vol.write(256*1024*1024, align=4096))
+    f.write(vol.write(256*1024*1024, align=4096, desktopdb=False))
 
 if not args.emu: exit()
 log('Starting emulator...', flush=True)
