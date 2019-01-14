@@ -59,7 +59,7 @@ def ticks_from_str(s):
 # Argparse
 
 args = argparse.ArgumentParser(description='''
-    Copy an MPW source tree into a System 6 disk image that builds on
+    Copy an MPW source tree into a System 7 disk image that builds on
     boot. Difficult parts of the build tree can be elegantly replaced by
     dropping pre-built objects or binaries into the AmphibianDNA folder.
     Every file in AmphibianDNA will be spliced into the build system by
