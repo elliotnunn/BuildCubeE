@@ -71,6 +71,7 @@ args.add_argument('src', metavar='SOURCES', action='store', help='Source tree')
 args.add_argument('-e', dest='emu', metavar='VMAC', action='store', default=None, help='path to emulator')
 group = args.add_mutually_exclusive_group()
 group.add_argument('--resedit', action='store_true', help='placeholder')
+group.add_argument('--tomeviewer', action='store_true', help='placeholder')
 group.add_argument('-c', dest='mpwcmd', metavar='CMD', action='store', default=None, help='MPW Shell command line')
 args.add_argument('-v', dest='verbose', action='store_true', help='verbose')
 args = args.parse_args()
@@ -262,6 +263,8 @@ if args.mpwcmd is not None:
     startapp = 'Disk:MPW:MPW Shell'
 elif args.resedit:
     startapp = 'Disk:System Folder:Apple Menu Items:ResEdit'
+elif args.tomeviewer:
+    startapp = 'Disk:System Folder:Apple Menu Items:TomeViewer'
 else:
     startapp = None
 
